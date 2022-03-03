@@ -732,7 +732,42 @@ corpus = [
         "Interval[]{2020-02-25 15:00 (X/X) - 2020-02-25 16:00 (X/X)}",
         "2020-02-25T12:34",
         ["today 15:00 for one hour"],
+    ), 
+    ( #added by Young-Ho
+        "Interval[]{2022-03-03 11:05 (X/X) - 2022-03-03 14:05 (X/X)}",
+        "2022-03-03T14:05",
+        ["for 3 hours", "for 3 hours until now", "for 3 hours so far", "for about 3 hours so far"]
     ),
+    ( #added by Young-Ho
+        "Interval[]{X-X-X 11:00 (X/X) - X-X-X 12:00 (X/X)}",
+        "2022-03-03T13:30",
+        ["from 11 a.m. for an hour", "since 11 a.m. for 1 hour", "from eleven for 1 hour", "from eleven for an hour", "since eleven for about an hour"]
+    ),
+    ( #added by Young-Ho
+        "Interval[]{2022-03-03 11:00 (X/X) - 2022-03-03 12:00 (X/X)}",
+        "2022-03-04T12:30",
+        ["from 11 a.m. yesterday for an hour", "from 11 a.m. yesterday for 1 hour", "from eleven yesterday for one hour"]
+    ),
+    ( #added by Young-Ho
+        "Interval[]{X-X-X 13:00 (X/X) - X-X-X 16:00 (X/X)}",
+        "2022-03-03T18:30",
+        ["since 1 pm for 3 hours", "since 1 pm for about 3 hours"]
+    ),
+
+
+    ( #added by Young-Ho
+        "Interval[]{X-X-X 11:30 (X/X) - X-X-X 12:15 (X/X)}",
+        "2022-03-03T18:30",
+        ["since 11:30 for 45 minutes"]
+    ),
+
+
+    ( #added by Young-Ho
+        "Interval[]{2022-03-03 18:20 (X/X) - 2022-03-03 19:05 (X/X)}",
+        "2022-03-03T18:30",
+        ["since 10 minutes ago for approximately 45 minutes"]
+    ),
+
     # ruleDurationInterval, ruleIntervalDuration
     (
         "Interval[]{2020-11-15 X:X (X/X) - 2020-11-18 X:X (X/X)}",

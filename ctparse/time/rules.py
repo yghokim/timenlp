@@ -1,10 +1,14 @@
+from time import time
 from typing import Optional, Any, cast
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import rrule, MONTHLY
+
+from ctparse.time.postprocess_latent import _latent_tod
 from ..rule import rule, predicate, dimension, _regex_to_join
 from ..types import Time, Duration, Interval, pod_hours, RegexMatch, DurationUnit
 
+_rule_template_uncertainty = r"(?:(?:about|around|approximately)\s+)?{}"
 
 @rule(
     r"at|on|am|um|gegen|den|dem|der|the|ca\.?|approx\.?|about|(in|of)( the)?|around",
@@ -83,8 +87,11 @@ _named_ts = (
 _rule_named_ts = "|".join(r"(?P<t_{}>{})".format(n, expr) for n, expr in _named_ts)
 _rule_named_ts = r"({})\s*".format(_rule_named_ts)
 
+#Young-Ho: Add about/arount
+_rule_named_ts = _rule_template_uncertainty.format(_rule_named_ts)
 
-@rule(_rule_named_ts + r"(uhr|h|o\'?clock)?")
+
+@rule( _rule_named_ts + r"(uhr|h|o\'?clock)?")
 def ruleNamedHour(ts: datetime, m: RegexMatch) -> Optional[Time]:
     match = m.match
     for n, _, in _named_ts:
@@ -790,6 +797,8 @@ _rule_named_number = "|".join(
 )
 _rule_named_number = r"({})\s*".format(_rule_named_number)
 
+_rule_named_number = _rule_template_uncertainty.format(_rule_named_number)
+
 _durations = [
     (DurationUnit.NIGHTS, r"n[aä]chte?|nights?|[üu]bernachtung"),
     (DurationUnit.DAYS, r"tage?|days?"),
@@ -807,7 +816,7 @@ _rule_durations = r"({})\s*".format(_rule_durations)
 
 
 # Rules regarding durations
-@rule(r"(?P<num>\d+)\s*" + _rule_durations)
+@rule(_rule_template_uncertainty.format(r"(?P<num>\d+)\s*") + _rule_durations)
 def ruleDigitDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
     # 1 day, 1 night etc.
     num = m.match.group("num")
@@ -926,3 +935,44 @@ def _duration_to_relativedelta(dur: Duration) -> relativedelta:
         DurationUnit.HOURS: relativedelta(hours=dur.value),
         DurationUnit.MINUTES: relativedelta(minutes=dur.value),
     }[dur.unit]
+
+
+#Appended rules######################
+
+
+@rule(dimension(Duration), r"ago|before")
+def ruleDurationAgo(ts: datetime, dur: Duration, _: RegexMatch) -> Time:
+    # Example:
+    # 5 days ago
+    # 3 weeks before
+    delta = _duration_to_relativedelta(dur)
+    time = ts - delta
+    return Time(year = time.year, month = time.month, day=time.day, hour=time.hour, minute=time.minute)
+
+
+#only elapsed duration
+@rule(r"for", dimension(Duration))
+def ruleElapsedDuration(ts: datetime, _1: RegexMatch, dur: Duration) -> Interval:
+    delta = _duration_to_relativedelta(dur)
+    start_ts = ts - delta
+    start = Time(year=start_ts.year, month=start_ts.month, day=start_ts.day, hour=start_ts.hour, minute=start_ts.minute)
+    return Interval(t_from=start, t_to=Time(year=ts.year, month=ts.month, day=ts.day, hour=ts.hour, minute=ts.minute))
+
+#time + duration
+@rule(r"from|since", dimension(Time), r"for", dimension(Duration))
+def ruleTimeDurationTime(ts: datetime, _1: RegexMatch, t: Time, _2: RegexMatch, dur: Duration) -> Interval:
+    delta = _duration_to_relativedelta(dur)
+    
+    end = None
+    if t.isDateTime:
+        end_ts = t.dt + delta
+        end = Time(year=end_ts.year, month=end_ts.month, day=end_ts.day, hour=end_ts.hour, minute=end_ts.minute)
+    else:
+        #Latent time
+        end_ts = _latent_tod(ts, t).dt + delta
+        if t.isDate:
+            end = Time(year=end_ts.year, month=end_ts.month, day=end_ts.day)
+        elif t.isTOD:
+            end = Time(year=t.year, month=t.month, day=t.day, hour=end_ts.hour, minute=end_ts.minute)
+        
+    return Interval(t_from=t, t_to=end)

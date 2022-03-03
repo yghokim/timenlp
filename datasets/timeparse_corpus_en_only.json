@@ -1,0 +1,2119 @@
+[
+  {
+    "text": "one night",
+    "ref_time": "2017-10-03T14:30:35",
+    "gold_parse": "Duration[]{1 nights}",
+    "language": "en"
+  },
+  {
+    "text": "12 September - Late evening",
+    "ref_time": "2017-09-01T08:44:52",
+    "gold_parse": "Time[]{2017-09-12 X:X (X/lateevening)}",
+    "language": "en"
+  },
+  {
+    "text": "11.9.",
+    "ref_time": "2017-09-09T05:50:20",
+    "gold_parse": "Time[]{2017-09-11 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday 14th December approximately 17.30.",
+    "ref_time": "2017-11-07T10:45:50",
+    "gold_parse": "Time[]{2017-12-14 17:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "26.9. around 17:00",
+    "ref_time": "2017-09-19T10:21:58",
+    "gold_parse": "Time[]{2017-09-26 17:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on the 05.12.2017",
+    "ref_time": "2017-11-28T14:21:23",
+    "gold_parse": "Time[]{2017-12-05 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Monday 03.07 to Thursday 06.07",
+    "ref_time": "2017-07-02T13:06:59",
+    "gold_parse": "Interval[]{2017-07-03 X:X (X/X) - 2017-07-06 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "July 30",
+    "ref_time": "2017-07-21T15:13:21",
+    "gold_parse": "Time[]{2017-07-30 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "31/08 0935-1101",
+    "ref_time": "2017-08-11T06:26:42",
+    "gold_parse": "Interval[]{2017-08-31 09:35 (X/X) - 2017-08-31 11:01 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday 20/10/2017",
+    "ref_time": "2017-09-11T11:23:21",
+    "gold_parse": "Time[]{2017-10-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "25.",
+    "ref_time": "2017-07-07T21:05:34",
+    "gold_parse": "Time[]{2017-07-25 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "16.12",
+    "ref_time": "2017-11-29T15:07:33",
+    "gold_parse": "Time[]{2017-12-16 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "next Tuesday lunchtime",
+    "ref_time": "2017-05-30T13:10:19",
+    "gold_parse": "Time[]{2017-06-06 X:X (X/noon)}",
+    "language": "en"
+  },
+  {
+    "text": "Fri 19 May 18:40 - 19:55",
+    "ref_time": "2017-05-11T17:16:49",
+    "gold_parse": "Interval[]{2017-05-19 18:40 (X/X) - 2017-05-19 19:55 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "15.10 - 16.10",
+    "ref_time": "2017-10-11T08:04:38",
+    "gold_parse": "Interval[]{2017-10-15 X:X (X/X) - 2017-10-16 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 04.09 at 9h15",
+    "ref_time": "2017-08-20T16:08:20",
+    "gold_parse": "Time[]{2017-09-04 09:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "next Thrusday in the afternoon around 18 or 19",
+    "ref_time": "2017-11-22T09:12:41",
+    "gold_parse": "Interval[]{2017-11-30 18:00 (X/X) - 2017-11-30 19:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on June 16th at 08.00",
+    "ref_time": "2017-06-13T14:35:43",
+    "gold_parse": "Time[]{2017-06-16 08:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Mon, Sep 18 3:25 PM - 11:55 PM",
+    "ref_time": "2017-09-06T08:31:37",
+    "gold_parse": "Interval[]{2017-09-18 15:25 (X/X) - 2017-09-18 23:55 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "10.11.2017 at around 12:30",
+    "ref_time": "2017-11-02T07:39:31",
+    "gold_parse": "Time[]{2017-11-10 12:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "night 13-14.6.",
+    "ref_time": "2017-05-29T13:51:49",
+    "gold_parse": "Interval[]{2017-06-13 X:X (X/X) - 2017-06-14 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "20 october",
+    "ref_time": "2017-10-19T08:47:39",
+    "gold_parse": "Time[]{2017-10-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "From Wed to Fri this week 2330",
+    "ref_time": "2017-11-29T12:13:58",
+    "gold_parse": "Time[]{2017-11-29 23:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "the 9th of October evening",
+    "ref_time": "2017-09-24T12:50:45",
+    "gold_parse": "Time[]{2017-10-09 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "24.8. Monday 10.00",
+    "ref_time": "2017-07-02T10:36:06",
+    "gold_parse": "Time[]{2017-08-24 10:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "26.01.1o sa gegen 16:30",
+    "ref_time": "2017-11-18T13:06:26",
+    "gold_parse": "Time[]{2018-01-26 16:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "31.9 around 0720",
+    "ref_time": "2017-08-25T13:44:00",
+    "gold_parse": "Time[]{2017-10-01 07:20 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "24.11.17",
+    "ref_time": "2017-10-26T09:13:13",
+    "gold_parse": "Time[]{2017-11-24 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "next Friday 6/9 around 170",
+    "ref_time": "2017-05-31T11:23:55",
+    "gold_parse": "Time[]{2017-06-09 17:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12 Nov 1115",
+    "ref_time": "2017-08-25T12:15:35",
+    "gold_parse": "Time[]{2017-11-13 11:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "evening",
+    "ref_time": "2017-10-02T12:57:20",
+    "gold_parse": "Time[]{X-X-X X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "Monday 11th December by late afternoon early evening",
+    "ref_time": "2017-11-07T10:45:50",
+    "gold_parse": "Interval[]{2017-12-11 X:X (X/lateafternoon) - 2017-12-11 X:X (X/earlyevening)}",
+    "language": "en"
+  },
+  {
+    "text": "from 24th - 26th June",
+    "ref_time": "2017-06-21T14:11:13",
+    "gold_parse": "Interval[]{2017-06-24 X:X (X/X) - 2017-06-26 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "tomorrow",
+    "ref_time": "2017-07-12T14:41:15",
+    "gold_parse": "Time[]{2017-07-13 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Fri Sep 8th 7:00 PM",
+    "ref_time": "2017-08-29T08:43:49",
+    "gold_parse": "Time[]{2017-09-08 19:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday 18th October",
+    "ref_time": "2017-09-13T13:29:16",
+    "gold_parse": "Time[]{2017-10-18 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "25th September",
+    "ref_time": "2017-09-07T10:03:03",
+    "gold_parse": "Time[]{2017-09-25 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "9 November",
+    "ref_time": "2017-11-06T10:57:20",
+    "gold_parse": "Time[]{2017-11-09 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1st December around 6pm",
+    "ref_time": "2017-11-23T08:59:53",
+    "gold_parse": "Time[]{2017-12-01 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Jun 7 1440-1825",
+    "ref_time": "2017-06-06T18:09:53",
+    "gold_parse": "Interval[]{2017-06-07 14:40 (X/X) - 2017-06-07 18:25 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "9.10 23:00",
+    "ref_time": "2017-09-21T07:07:45",
+    "gold_parse": "Time[]{2017-10-09 23:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12 loka 13:10",
+    "ref_time": "2017-09-13T14:48:21",
+    "gold_parse": "Time[]{2017-10-12 13:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "18th Nov",
+    "ref_time": "2017-11-17T21:08:07",
+    "gold_parse": "Time[]{2017-11-18 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "21/09 2205-0455",
+    "ref_time": "2017-08-11T06:30:46",
+    "gold_parse": "Interval[]{2017-09-21 22:05 (X/X) - 2017-09-22 04:55 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Nov 12 2215-1835",
+    "ref_time": "2017-07-21T16:36:54",
+    "gold_parse": "Interval[]{2017-11-12 22:15 (X/X) - 2017-11-12 18:35 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "5pm",
+    "ref_time": "2017-05-24T15:42:27",
+    "gold_parse": "Time[]{X-X-X 17:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "20 November",
+    "ref_time": "2017-11-17T13:51:22",
+    "gold_parse": "Time[]{2017-11-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "thursday night",
+    "ref_time": "2017-05-11T10:03:19",
+    "gold_parse": "Time[]{2017-05-18 X:X (X/night)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday evening",
+    "ref_time": "2017-06-09T08:32:49",
+    "gold_parse": "Time[]{2017-06-14 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "25 SEP, 15:50",
+    "ref_time": "2017-09-10T15:46:24",
+    "gold_parse": "Time[]{2017-09-25 15:50 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday November 16th around 14:30-15:00",
+    "ref_time": "2017-11-14T10:50:19",
+    "gold_parse": "Interval[]{2017-11-16 14:30 (X/X) - 2017-11-16 15:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "11.07.2017 in the evening",
+    "ref_time": "2017-07-07T14:56:20",
+    "gold_parse": "Time[]{2017-07-11 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "2nd Oct",
+    "ref_time": "2017-09-08T17:14:10",
+    "gold_parse": "Time[]{2017-10-02 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Wednesday 23.08. around 7pm.",
+    "ref_time": "2017-08-17T18:01:53",
+    "gold_parse": "Time[]{2017-08-23 19:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday late morning",
+    "ref_time": "2017-11-10T01:18:15",
+    "gold_parse": "Time[]{2017-11-14 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday afternoon 16.29h",
+    "ref_time": "2017-11-02T11:20:38",
+    "gold_parse": "Time[]{2017-11-07 16:29 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12 loka 18:30",
+    "ref_time": "2017-09-13T14:48:21",
+    "gold_parse": "Time[]{2017-10-12 18:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday 16.11.2017 late afternoon",
+    "ref_time": "2017-11-13T15:19:05",
+    "gold_parse": "Time[]{2017-11-16 X:X (X/lateafternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "early afternoon",
+    "ref_time": "2017-10-24T19:11:30",
+    "gold_parse": "Time[]{X-X-X X:X (X/earlyafternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday 16.11.2017 6:30am",
+    "ref_time": "2017-11-13T15:19:05",
+    "gold_parse": "Time[]{2017-11-16 06:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Jun 7, Wed at 1515pm",
+    "ref_time": "2017-06-01T11:15:13",
+    "gold_parse": "Time[]{2017-06-07 15:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "16 NOV, 09:10",
+    "ref_time": "2017-10-23T09:29:04",
+    "gold_parse": "Time[]{2017-11-16 09:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Monday 28 August, at around 8am",
+    "ref_time": "2017-08-14T10:44:12",
+    "gold_parse": "Time[]{2017-08-28 08:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 14/12/2017 6:00PM",
+    "ref_time": "2017-11-17T09:52:14",
+    "gold_parse": "Time[]{2017-12-14 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "December 7.",
+    "ref_time": "2017-10-27T13:43:50",
+    "gold_parse": "Time[]{2017-12-07 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "July 3rd",
+    "ref_time": "2017-06-02T10:33:52",
+    "gold_parse": "Time[]{2017-07-03 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "14.09.2017 18:00 - 20:00",
+    "ref_time": "2017-08-09T09:39:11",
+    "gold_parse": "Interval[]{2017-09-14 18:00 (X/X) - 2017-09-14 20:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "July 8 - July 9",
+    "ref_time": "2017-07-06T11:26:18",
+    "gold_parse": "Interval[]{2017-07-08 X:X (X/X) - 2017-07-09 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Friday midday 19/05",
+    "ref_time": "2017-05-09T15:42:58",
+    "gold_parse": "Time[]{2017-05-19 X:X (X/noon)}",
+    "language": "en"
+  },
+  {
+    "text": "October 10 (afternoon)",
+    "ref_time": "2017-10-02T08:48:54",
+    "gold_parse": "Time[]{2017-10-10 X:X (X/afternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "29.05.2017 11:26",
+    "ref_time": "2017-05-24T09:48:05",
+    "gold_parse": "Time[]{2017-05-29 11:26 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Friday 28/06 around 15:20",
+    "ref_time": "2017-07-20T15:24:21",
+    "gold_parse": "Time[]{2017-06-28 15:20 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "16.8. in the evening",
+    "ref_time": "2017-08-13T18:08:01",
+    "gold_parse": "Time[]{2017-08-16 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "19/12 1510-1640",
+    "ref_time": "2017-10-03T15:13:10",
+    "gold_parse": "Interval[]{2017-12-19 15:10 (X/X) - 2017-12-19 16:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Monday 8th October-Wednesday 11th October",
+    "ref_time": "2017-09-20T12:21:26",
+    "gold_parse": "Interval[]{2017-10-08 X:X (X/X) - 2017-10-11 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "7th of November, 2017",
+    "ref_time": "2017-10-29T15:56:00",
+    "gold_parse": "Time[]{2017-11-07 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "7.03.2018 in the evening",
+    "ref_time": "2017-10-17T09:15:38",
+    "gold_parse": "Time[]{2018-03-07 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday, September 27th",
+    "ref_time": "2017-09-22T17:11:20",
+    "gold_parse": "Time[]{2017-09-27 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Mon 23rd Oct at 15h05 20h15Leave",
+    "ref_time": "2017-10-20T07:28:07",
+    "gold_parse": "Time[]{2017-10-23 20:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday 23.08. 22:00",
+    "ref_time": "2017-08-17T10:31:26",
+    "gold_parse": "Time[]{2017-08-23 22:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Nov 12 (Sun",
+    "ref_time": "2017-11-05T14:52:44",
+    "gold_parse": "Time[]{2017-11-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "From Tuesday 19th to Saturday 23 this month",
+    "ref_time": "2017-09-15T12:30:53",
+    "gold_parse": "Interval[]{2017-09-19 X:X (X/X) - 2017-09-23 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "around midday Saturday",
+    "ref_time": "2017-11-13T13:45:57",
+    "gold_parse": "Time[]{2017-12-16 X:X (X/afternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "26.10.2017",
+    "ref_time": "2017-10-19T08:37:12",
+    "gold_parse": "Time[]{2017-10-26 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wed - Thu",
+    "ref_time": "2017-10-06T09:45:11",
+    "gold_parse": "Interval[]{2017-10-11 X:X (X/X) - 2017-10-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Monday 11th December by early evening",
+    "ref_time": "2017-11-06T16:09:02",
+    "gold_parse": "Time[]{2017-12-11 X:X (X/earlyevening)}",
+    "language": "en"
+  },
+  {
+    "text": "September 6th after 9pm",
+    "ref_time": "2017-08-14T08:27:59",
+    "gold_parse": "Interval[]{2017-09-06 21:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "13 Nov",
+    "ref_time": "2017-08-25T12:15:35",
+    "gold_parse": "Time[]{2017-11-13 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Monday May 22nd around 16.40",
+    "ref_time": "2017-05-16T08:58:31",
+    "gold_parse": "Time[]{2017-05-22 16:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "November 7th around 17:00",
+    "ref_time": "2017-10-17T14:33:24",
+    "gold_parse": "Time[]{2017-11-07 17:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday evening",
+    "ref_time": "2017-10-19T09:07:57",
+    "gold_parse": "Time[]{2017-10-24 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "Wed 1 Nov 0805",
+    "ref_time": "2017-10-29T18:23:09",
+    "gold_parse": "Time[]{2017-11-01 08:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday 23 May Evening",
+    "ref_time": "2017-05-16T07:42:34",
+    "gold_parse": "Time[]{2017-05-23 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "19/12 1510-1640",
+    "ref_time": "2017-10-03T15:13:10",
+    "gold_parse": "Interval[]{2017-12-19 15:10 (X/X) - 2017-12-19 16:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "25th",
+    "ref_time": "2017-08-11T08:06:02",
+    "gold_parse": "Time[]{2017-08-25 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 24 october",
+    "ref_time": "2017-09-22T10:40:47",
+    "gold_parse": "Time[]{2017-10-24 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "next week Tues morning",
+    "ref_time": "2017-07-31T15:28:22",
+    "gold_parse": "Time[]{2017-08-08 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "03.08. 7:00",
+    "ref_time": "2017-07-28T12:35:10",
+    "gold_parse": "Time[]{2017-08-03 07:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "8.11 in the evening",
+    "ref_time": "2017-11-06T08:17:33",
+    "gold_parse": "Time[]{2017-11-08 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "1st December around 6pm",
+    "ref_time": "2017-11-23T08:59:53",
+    "gold_parse": "Time[]{2017-12-01 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on June 14",
+    "ref_time": "2017-05-29T15:01:39",
+    "gold_parse": "Time[]{2017-06-14 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Evening of 16 Nov",
+    "ref_time": "2017-08-25T09:43:25",
+    "gold_parse": "Time[]{2017-11-16 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday 5 July, 20:15",
+    "ref_time": "2017-06-20T11:08:58",
+    "gold_parse": "Time[]{2017-07-05 20:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "13 loka 10:05",
+    "ref_time": "2017-09-13T14:48:21",
+    "gold_parse": "Time[]{2017-10-13 10:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 22.08.2017 13:00",
+    "ref_time": "2017-08-17T11:21:07",
+    "gold_parse": "Time[]{2017-08-22 13:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "14.09.2017",
+    "ref_time": "2017-08-29T08:08:17",
+    "gold_parse": "Time[]{2017-09-14 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Sunday 15.10.",
+    "ref_time": "2017-10-11T12:25:46",
+    "gold_parse": "Time[]{2017-10-15 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "15 Sept 1410-1745ECO",
+    "ref_time": "2017-09-06T11:52:28",
+    "gold_parse": "Interval[]{2017-09-15 14:10 (X/X) - 2017-09-15 17:45 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "27 SEP, 17:15",
+    "ref_time": "2017-09-10T15:46:24",
+    "gold_parse": "Time[]{2017-09-27 17:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday 30th November",
+    "ref_time": "2017-11-08T13:35:32",
+    "gold_parse": "Time[]{2017-11-30 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1 Nov 1015",
+    "ref_time": "2017-08-25T12:23:01",
+    "gold_parse": "Time[]{2017-11-02 10:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Sunday 1925",
+    "ref_time": "2017-06-20T15:44:48",
+    "gold_parse": "Time[]{2017-06-25 19:25 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Monday 27 November between 16:00 and 21:00",
+    "ref_time": "2017-11-20T12:23:28",
+    "gold_parse": "Interval[]{2017-11-27 16:00 (X/X) - 2017-11-27 21:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on December 7 th evening",
+    "ref_time": "2017-10-30T13:44:04",
+    "gold_parse": "Time[]{2017-12-07 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "Next week Monday",
+    "ref_time": "2017-05-25T09:17:54",
+    "gold_parse": "Time[]{2017-05-29 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Wednesday 21/06",
+    "ref_time": "2017-06-13T09:01:59",
+    "gold_parse": "Time[]{2017-06-21 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on the 5th Night",
+    "ref_time": "2017-10-24T12:08:03",
+    "gold_parse": "Time[]{2017-11-05 X:X (X/night)}",
+    "language": "en"
+  },
+  {
+    "text": "6.6. late",
+    "ref_time": "2017-05-25T18:08:30",
+    "gold_parse": "Time[]{2017-06-06 X:X (X/latenight)}",
+    "language": "en"
+  },
+  {
+    "text": "on 20th October",
+    "ref_time": "2017-10-09T14:04:29",
+    "gold_parse": "Time[]{2017-10-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "the first flight on 15 September",
+    "ref_time": "2017-08-23T10:02:45",
+    "gold_parse": "Time[]{2017-09-15 X:X (X/first)}",
+    "language": "en"
+  },
+  {
+    "text": "12th of October",
+    "ref_time": "2017-10-05T08:55:05",
+    "gold_parse": "Time[]{2017-10-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday 23.08. 22:00",
+    "ref_time": "2017-08-17T10:31:26",
+    "gold_parse": "Time[]{2017-08-23 22:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Tuesday morning 11/21 - 11/22 early evening",
+    "ref_time": "2017-11-01T10:06:57",
+    "gold_parse": "Interval[]{2017-11-21 X:X (X/morning) - 2017-11-22 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "June 7th 17.05-18.15",
+    "ref_time": "2017-05-24T13:21:01",
+    "gold_parse": "Interval[]{2017-06-07 17:05 (X/X) - 2017-06-07 18:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12 to 15 October 2017",
+    "ref_time": "2017-07-05T12:54:08",
+    "gold_parse": "Interval[]{2017-10-12 X:X (X/X) - 2017-10-15 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "27.10.2017 20-21",
+    "ref_time": "2017-10-18T06:50:26",
+    "gold_parse": "Interval[]{2017-10-27 20:00 (X/X) - 2017-10-27 21:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "6 Nov",
+    "ref_time": "2017-08-25T12:23:01",
+    "gold_parse": "Time[]{2017-11-06 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "next Tuesday 8th early morning",
+    "ref_time": "2017-07-31T17:45:15",
+    "gold_parse": "Time[]{2017-08-08 X:X (X/earlymorning)}",
+    "language": "en"
+  },
+  {
+    "text": "3 Dec 2125",
+    "ref_time": "2017-11-20T19:42:36",
+    "gold_parse": "Time[]{2017-12-03 21:25 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday evening",
+    "ref_time": "2017-09-04T09:11:42",
+    "gold_parse": "Time[]{2017-09-07 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "27.11.-29.11.2017",
+    "ref_time": "2017-11-26T07:44:15",
+    "gold_parse": "Interval[]{2017-11-27 X:X (X/X) - 2017-11-29 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "thursday 23.11",
+    "ref_time": "2017-11-17T17:06:00",
+    "gold_parse": "Time[]{2017-11-23 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday 12.09",
+    "ref_time": "2017-09-08T20:54:33",
+    "gold_parse": "Time[]{2017-09-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "This Sunday till Tuesday",
+    "ref_time": "2017-09-12T16:17:16",
+    "gold_parse": "Interval[]{2017-09-17 X:X (X/X) - 2017-09-19 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Monday 13 November in morning",
+    "ref_time": "2017-11-08T14:59:17",
+    "gold_parse": "Time[]{2017-11-13 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "2 Nov 1815",
+    "ref_time": "2017-08-25T12:23:01",
+    "gold_parse": "Time[]{2017-11-02 18:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "earlier 06.08",
+    "ref_time": "2017-07-27T14:17:42",
+    "gold_parse": "Time[]{2017-08-06 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "on Monday, August 21st in the morning",
+    "ref_time": "2017-08-08T09:40:21",
+    "gold_parse": "Time[]{2017-08-21 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "Nov 8 2359-1715",
+    "ref_time": "2017-07-21T16:36:54",
+    "gold_parse": "Interval[]{2017-11-08 23:59 (X/X) - 2017-11-08 17:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "the 22nd",
+    "ref_time": "2017-09-24T12:50:45",
+    "gold_parse": "Time[]{2017-10-22 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on the 6th of December around noon",
+    "ref_time": "2017-11-16T08:18:27",
+    "gold_parse": "Time[]{2017-12-06 X:X (X/noon)}",
+    "language": "en"
+  },
+  {
+    "text": "middle",
+    "ref_time": "2017-10-06T09:45:11",
+    "gold_parse": "Time[]{2017-10-12 X:X (X/noon)}",
+    "language": "en"
+  },
+  {
+    "text": "Thu 26 Oct late afternoon",
+    "ref_time": "2017-10-24T19:11:30",
+    "gold_parse": "Time[]{2017-10-26 X:X (X/lateafternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday 15/06 around 18.00 h",
+    "ref_time": "2017-06-12T14:50:11",
+    "gold_parse": "Time[]{2017-06-15 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 27th June",
+    "ref_time": "2017-06-18T15:05:47",
+    "gold_parse": "Time[]{2017-06-27 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tomorrow 16 Nov noon",
+    "ref_time": "2017-11-15T06:24:36",
+    "gold_parse": "Time[]{2017-11-16 12:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "29 / 30 August",
+    "ref_time": "2017-08-24T13:09:17",
+    "gold_parse": "Interval[]{2017-08-29 X:X (X/X) - 2017-08-30 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "8 October after 6pm",
+    "ref_time": "2017-10-03T20:24:48",
+    "gold_parse": "Interval[]{2017-10-08 18:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "1 night",
+    "ref_time": "2017-09-14T09:18:11",
+    "gold_parse": "Duration[]{1 nights}",
+    "language": "en"
+  },
+  {
+    "text": "14.11.2017",
+    "ref_time": "2017-11-03T14:00:07",
+    "gold_parse": "Time[]{2017-11-14 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12.09.2017 14:00 - 16:00",
+    "ref_time": "2017-08-09T09:39:11",
+    "gold_parse": "Interval[]{2017-09-12 14:00 (X/X) - 2017-09-12 16:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 5th July",
+    "ref_time": "2017-07-03T15:35:49",
+    "gold_parse": "Time[]{2017-07-05 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on sunday 9/24 by 1830",
+    "ref_time": "2017-09-12T16:30:23",
+    "gold_parse": "Time[]{2017-09-24 18:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday 25th July Early morning",
+    "ref_time": "2017-07-17T12:58:49",
+    "gold_parse": "Time[]{2017-07-25 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "11 October between 2 and 4pm",
+    "ref_time": "2017-10-03T20:24:48",
+    "gold_parse": "Interval[]{2017-10-11 14:00 (X/X) - 2017-10-11 16:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday the 30 of Nov. early",
+    "ref_time": "2017-09-22T12:12:02",
+    "gold_parse": "Time[]{2017-11-30 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "2 nights",
+    "ref_time": "2017-07-17T12:57:50",
+    "gold_parse": "Duration[]{2 nights}",
+    "language": "en"
+  },
+  {
+    "text": "Mon Dec 4 08.40",
+    "ref_time": "2017-10-31T13:27:55",
+    "gold_parse": "Time[]{2017-12-04 08:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Sunday the 1st of October",
+    "ref_time": "2017-07-27T15:42:42",
+    "gold_parse": "Time[]{2017-10-01 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "05.09 21:55 - 23:05",
+    "ref_time": "2017-08-03T14:55:23",
+    "gold_parse": "Interval[]{2017-09-05 21:55 (X/X) - 2017-09-05 23:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Nov 2nd morning",
+    "ref_time": "2017-10-24T12:08:03",
+    "gold_parse": "Time[]{2017-11-02 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday 20/10/2017",
+    "ref_time": "2017-09-11T11:23:21",
+    "gold_parse": "Time[]{2017-10-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "01.11",
+    "ref_time": "2017-10-31T06:52:13",
+    "gold_parse": "Time[]{2017-11-01 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "30th July",
+    "ref_time": "2017-07-19T07:19:29",
+    "gold_parse": "Time[]{2017-07-30 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "14.09.2017 after 19:00",
+    "ref_time": "2017-05-31T14:27:42",
+    "gold_parse": "Interval[]{2017-09-14 19:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "14 OCT 22:40",
+    "ref_time": "2017-10-05T07:42:13",
+    "gold_parse": "Time[]{2017-10-14 22:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12.09.17 - 14.09.17 18:00 - 20:00",
+    "ref_time": "2017-08-11T11:31:27",
+    "gold_parse": "Interval[]{2017-09-14 18:00 (X/X) - 2017-09-14 20:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "29.Sept evening",
+    "ref_time": "2017-09-26T09:41:34",
+    "gold_parse": "Time[]{2017-09-29 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "10.10 - 11.10",
+    "ref_time": "2017-09-15T15:05:57",
+    "gold_parse": "Interval[]{2017-10-10 X:X (X/X) - 2017-10-11 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "31 January 2017",
+    "ref_time": "2017-10-23T19:48:26",
+    "gold_parse": "Time[]{2017-01-31 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "14 June Wed, 1920pm",
+    "ref_time": "2017-06-08T06:43:53",
+    "gold_parse": "Time[]{2017-06-14 19:20 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "15 NOV, 17:35",
+    "ref_time": "2017-11-14T04:09:13",
+    "gold_parse": "Time[]{2017-11-15 17:35 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "16/05-20/05",
+    "ref_time": "2017-05-10T09:50:33",
+    "gold_parse": "Interval[]{2017-05-16 X:X (X/X) - 2017-05-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Afternoon",
+    "ref_time": "2017-06-12T13:24:04",
+    "gold_parse": "Time[]{2017-06-15 X:X (X/afternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "Sun Nov 12",
+    "ref_time": "2017-10-23T11:30:25",
+    "gold_parse": "Time[]{2017-11-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 12/09 late evening the last flight",
+    "ref_time": "2017-08-24T08:17:14",
+    "gold_parse": "Time[]{2017-09-12 X:X (X/last)}",
+    "language": "en"
+  },
+  {
+    "text": "11APR 0740 - 0910",
+    "ref_time": "2017-05-23T09:01:20",
+    "gold_parse": "Interval[]{2017-04-11 07:40 (X/X) - 2017-04-11 09:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 21 August",
+    "ref_time": "2017-08-11T14:32:00",
+    "gold_parse": "Time[]{2017-08-21 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "around 2pmTuesday",
+    "ref_time": "2017-08-29T20:39:57",
+    "gold_parse": "Time[]{2017-09-05 14:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "25 SEP, 10:30",
+    "ref_time": "2017-09-19T09:55:48",
+    "gold_parse": "Time[]{2017-09-25 10:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Mon, Sep 18 3:40 AM+1 - 8:50 AM+1",
+    "ref_time": "2017-09-06T08:31:37",
+    "gold_parse": "Interval[]{2017-09-19 03:40 (X/X) - 2017-09-19 08:50 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12.09.2017 - 14.09.2017",
+    "ref_time": "2017-05-31T14:27:42",
+    "gold_parse": "Interval[]{2017-09-12 X:X (X/X) - 2017-09-14 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "10 November",
+    "ref_time": "2017-11-06T10:57:20",
+    "gold_parse": "Time[]{2017-11-10 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "19.10",
+    "ref_time": "2017-10-11T08:04:38",
+    "gold_parse": "Time[]{2017-10-19 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "30 May 2305-0715+1",
+    "ref_time": "2017-05-23T16:47:40",
+    "gold_parse": "Interval[]{2017-05-30 23:05 (X/X) - 2017-05-31 07:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on the 25th in the evening",
+    "ref_time": "2017-06-07T10:09:16",
+    "gold_parse": "Time[]{2017-06-25 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "19th Jan. late",
+    "ref_time": "2017-11-24T10:43:42",
+    "gold_parse": "Time[]{2018-01-19 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "7th of November, 2017",
+    "ref_time": "2017-10-29T15:56:00",
+    "gold_parse": "Time[]{2017-11-07 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday 25th October",
+    "ref_time": "2017-07-28T09:21:51",
+    "gold_parse": "Time[]{2017-10-25 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "19/09 at 9:15 PM",
+    "ref_time": "2017-09-12T08:07:41",
+    "gold_parse": "Time[]{2017-09-19 21:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Fri Sep 8th 7:00 PM",
+    "ref_time": "2017-08-29T08:43:49",
+    "gold_parse": "Time[]{2017-09-08 19:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "9 - 10 October",
+    "ref_time": "2017-10-03T20:24:48",
+    "gold_parse": "Interval[]{2017-10-09 X:X (X/X) - 2017-10-10 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "27/08  1605-1800",
+    "ref_time": "2017-08-11T06:26:42",
+    "gold_parse": "Interval[]{2017-08-27 16:05 (X/X) - 2017-08-27 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Jan 1",
+    "ref_time": "2017-09-17T14:18:42",
+    "gold_parse": "Time[]{2018-01-01 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "wednesday in the morning",
+    "ref_time": "2017-05-11T10:03:19",
+    "gold_parse": "Time[]{2017-05-17 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "from 16 to 17 November 2017",
+    "ref_time": "2017-10-25T12:56:44",
+    "gold_parse": "Interval[]{2017-11-16 X:X (X/X) - 2017-11-17 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "21/09 2205-0455",
+    "ref_time": "2017-08-11T06:30:46",
+    "gold_parse": "Interval[]{2017-09-21 22:05 (X/X) - 2017-09-22 04:55 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1 night",
+    "ref_time": "2017-07-21T05:22:51",
+    "gold_parse": "Duration[]{1 nights}",
+    "language": "en"
+  },
+  {
+    "text": "8 June lunchtime / in the early afternoon",
+    "ref_time": "2017-06-06T07:15:45",
+    "gold_parse": "Time[]{2017-06-08 X:X (X/earlyafternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "Thurs 2 Nov 2015",
+    "ref_time": "2017-10-29T18:23:09",
+    "gold_parse": "Time[]{2017-11-02 20:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 12 october",
+    "ref_time": "2017-09-22T10:40:47",
+    "gold_parse": "Time[]{2017-10-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "June 28 at 2305-0715",
+    "ref_time": "2017-06-13T12:19:37",
+    "gold_parse": "Interval[]{2017-06-28 23:05 (X/X) - 2017-06-29 07:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "10.11.2017 at around 12:30",
+    "ref_time": "2017-11-02T07:39:31",
+    "gold_parse": "Time[]{2017-11-10 12:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "20.9. in the evening",
+    "ref_time": "2017-09-01T10:41:16",
+    "gold_parse": "Time[]{2017-09-20 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "Sunday 19th November",
+    "ref_time": "2017-11-13T11:23:47",
+    "gold_parse": "Time[]{2017-11-19 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wed in the afternoon",
+    "ref_time": "2017-07-24T10:41:18",
+    "gold_parse": "Time[]{2017-07-26 X:X (X/afternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "01.08.17 - 04.08.17",
+    "ref_time": "2017-07-31T05:58:04",
+    "gold_parse": "Interval[]{2017-08-01 X:X (X/X) - 2017-08-04 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "29 Aug evening",
+    "ref_time": "2017-08-21T09:10:52",
+    "gold_parse": "Time[]{2017-08-29 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "25/09 0750-0930",
+    "ref_time": "2017-09-15T16:21:39",
+    "gold_parse": "Interval[]{2017-09-25 07:50 (X/X) - 2017-09-25 09:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "13.6. - 15.6.",
+    "ref_time": "2017-05-23T14:47:58",
+    "gold_parse": "Interval[]{2017-06-13 X:X (X/X) - 2017-06-15 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12 October earliest flight",
+    "ref_time": "2017-10-03T20:24:48",
+    "gold_parse": "Time[]{2017-10-12 X:X (X/first)}",
+    "language": "en"
+  },
+  {
+    "text": "thursady 19th October in the evening",
+    "ref_time": "2017-09-28T09:09:13",
+    "gold_parse": "Time[]{2017-10-19 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "9 loka 22:45",
+    "ref_time": "2017-09-13T14:48:21",
+    "gold_parse": "Time[]{2017-10-09 22:45 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "18 Aug 1005",
+    "ref_time": "2017-07-20T15:58:53",
+    "gold_parse": "Time[]{2017-08-18 10:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 12.09.2017 between 5-9 am",
+    "ref_time": "2017-09-05T13:13:30",
+    "gold_parse": "Interval[]{2017-09-12 05:00 (X/X) - 2017-09-12 09:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "July 11 at 14:10",
+    "ref_time": "2017-06-15T14:27:58",
+    "gold_parse": "Time[]{2017-07-11 14:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "November 8th 07:00-09:10",
+    "ref_time": "2017-11-02T07:10:05",
+    "gold_parse": "Interval[]{2017-11-08 07:00 (X/X) - 2017-11-08 09:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "05.10 early in the morning (around 7-8",
+    "ref_time": "2017-10-03T10:34:40",
+    "gold_parse": "Interval[]{2017-10-05 07:00 (X/X) - 2017-10-05 08:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "27 July 1100",
+    "ref_time": "2017-07-20T15:50:49",
+    "gold_parse": "Time[]{2017-07-27 11:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "2 Nov 1815",
+    "ref_time": "2017-08-25T12:23:01",
+    "gold_parse": "Time[]{2017-11-02 18:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "11/12 last flight",
+    "ref_time": "2017-11-28T08:47:28",
+    "gold_parse": "Time[]{2017-12-11 X:X (X/last)}",
+    "language": "en"
+  },
+  {
+    "text": "from 15 to 16 November 2017",
+    "ref_time": "2017-10-25T12:56:44",
+    "gold_parse": "Interval[]{2017-11-15 X:X (X/X) - 2017-11-16 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "8th of June around 7pm",
+    "ref_time": "2017-06-01T10:14:40",
+    "gold_parse": "Time[]{2017-06-08 19:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1 day",
+    "ref_time": "2017-11-03T15:07:20",
+    "gold_parse": "Interval[]{2017-11-06 X:X (X/X) - 2017-11-07 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Thursday 23rd November around 6.30 p.m",
+    "ref_time": "2017-10-18T15:34:42",
+    "gold_parse": "Time[]{2017-11-23 18:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday November 16th around 14:30-15:00",
+    "ref_time": "2017-11-14T10:50:19",
+    "gold_parse": "Interval[]{2017-11-16 14:30 (X/X) - 2017-11-16 15:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Wednesday 6th of September around 5",
+    "ref_time": "2017-08-21T08:57:09",
+    "gold_parse": "Time[]{2017-09-06 17:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 14/12/2017 6:00PM",
+    "ref_time": "2017-11-17T09:52:14",
+    "gold_parse": "Time[]{2017-12-14 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1 night",
+    "ref_time": "2017-10-24T12:30:29",
+    "gold_parse": "Duration[]{1 nights}",
+    "language": "en"
+  },
+  {
+    "text": "on Tuesday, June 20, after 13:00",
+    "ref_time": "2017-06-10T15:11:50",
+    "gold_parse": "Interval[]{2017-06-20 13:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "today 12.10",
+    "ref_time": "2017-10-12T05:43:08",
+    "gold_parse": "Time[]{2017-10-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "From July 18th to July 21st",
+    "ref_time": "2017-07-14T10:43:29",
+    "gold_parse": "Interval[]{2017-07-18 X:X (X/X) - 2017-07-21 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "between 21 and 22.11.2017",
+    "ref_time": "2017-11-14T10:45:44",
+    "gold_parse": "Interval[]{2017-11-21 X:X (X/X) - 2017-11-22 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on sep 27",
+    "ref_time": "2017-09-20T10:54:19",
+    "gold_parse": "Time[]{2017-09-27 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "week 36",
+    "ref_time": "2017-08-15T17:43:29",
+    "gold_parse": "Interval[]{2017-09-04 X:X (X/X) - 2017-09-10 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "13.12 - 17.12",
+    "ref_time": "2017-11-28T12:41:35",
+    "gold_parse": "Interval[]{2017-12-13 X:X (X/X) - 2017-12-17 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "9 Nov 1815",
+    "ref_time": "2017-08-25T12:23:01",
+    "gold_parse": "Time[]{2017-11-09 18:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Thursday the 30 of Nov. early",
+    "ref_time": "2017-09-22T12:12:02",
+    "gold_parse": "Time[]{2017-11-30 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "Evening of 8 Nov",
+    "ref_time": "2017-08-25T09:43:25",
+    "gold_parse": "Time[]{2017-11-08 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "25.9.2017 18:00",
+    "ref_time": "2017-09-25T06:14:47",
+    "gold_parse": "Time[]{2017-09-25 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Oct 31 1055-1215",
+    "ref_time": "2017-10-26T15:49:51",
+    "gold_parse": "Interval[]{2017-10-31 10:55 (X/X) - 2017-10-31 12:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "27/11 in the morning",
+    "ref_time": "2017-11-17T14:00:05",
+    "gold_parse": "Time[]{2017-11-27 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "08/10/2017",
+    "ref_time": "2017-09-07T10:27:33",
+    "gold_parse": "Time[]{2017-10-08 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "from 13 to 14 November 2017",
+    "ref_time": "2017-10-25T12:56:44",
+    "gold_parse": "Interval[]{2017-10-13 X:X (X/X) - 2017-10-14 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "17 of September on Sunday night",
+    "ref_time": "2017-09-07T13:55:55",
+    "gold_parse": "Time[]{2017-09-17 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "6.6. late",
+    "ref_time": "2017-05-25T18:08:30",
+    "gold_parse": "Time[]{2017-06-06 X:X (X/latenight)}",
+    "language": "en"
+  },
+  {
+    "text": "from 12 to 13 November 2017",
+    "ref_time": "2017-10-25T12:56:44",
+    "gold_parse": "Interval[]{2017-10-12 X:X (X/X) - 2017-10-13 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "24th October in the evening",
+    "ref_time": "2017-09-19T09:22:24",
+    "gold_parse": "Time[]{2017-10-24 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "30 May 2305-0715+1",
+    "ref_time": "2017-05-23T16:47:40",
+    "gold_parse": "Interval[]{2017-05-30 23:05 (X/X) - 2017-05-31 07:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 16/08 late afternoon",
+    "ref_time": "2017-08-08T16:10:02",
+    "gold_parse": "Time[]{2017-08-16 X:X (X/lateafternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "on Monday 20th November",
+    "ref_time": "2017-10-18T15:34:42",
+    "gold_parse": "Time[]{2017-11-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12.09.17 - 14.09.17 14:00 - 16:00",
+    "ref_time": "2017-08-11T11:31:27",
+    "gold_parse": "Interval[]{2017-09-14 14:00 (X/X) - 2017-09-14 16:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Jun 7 at 05.10am",
+    "ref_time": "2017-06-05T10:50:37",
+    "gold_parse": "Time[]{2017-06-07 05:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "30-31 oct",
+    "ref_time": "2017-10-13T10:44:22",
+    "gold_parse": "Interval[]{2017-10-30 X:X (X/X) - 2017-10-31 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Friday August 18th 15:55-16:55",
+    "ref_time": "2017-08-09T13:20:08",
+    "gold_parse": "Interval[]{2017-08-18 15:55 (X/X) - 2017-08-18 16:55 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "from 19th - 23rd of November",
+    "ref_time": "2017-11-15T11:42:14",
+    "gold_parse": "Interval[]{2017-11-19 X:X (X/X) - 2017-11-23 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Nov 18 around 10-11am",
+    "ref_time": "2017-11-13T15:08:36",
+    "gold_parse": "Interval[]{2017-11-18 10:00 (X/X) - 2017-11-18 11:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "morning of the 11th of June",
+    "ref_time": "2017-05-23T14:01:02",
+    "gold_parse": "Time[]{2017-06-11 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "25th September",
+    "ref_time": "2017-09-07T10:03:03",
+    "gold_parse": "Time[]{2017-09-25 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 2nd and 3rd night",
+    "ref_time": "2017-10-24T13:42:29",
+    "gold_parse": "Interval[]{2017-11-02 X:X (X/X) - 2017-11-03 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "28th Sep",
+    "ref_time": "2017-09-08T17:14:10",
+    "gold_parse": "Time[]{2017-09-28 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Friday 28/06 around 15:20",
+    "ref_time": "2017-07-20T15:24:21",
+    "gold_parse": "Time[]{2017-06-28 15:20 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Friday 08.12.1707",
+    "ref_time": "2017-11-25T09:44:04",
+    "gold_parse": "Time[]{2017-12-08 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "4.9.2017 afternoon 16.00-17.30",
+    "ref_time": "2017-08-23T05:58:36",
+    "gold_parse": "Interval[]{2017-09-04 16:00 (X/X) - 2017-09-04 17:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 06/08 evening",
+    "ref_time": "2017-07-31T09:04:05",
+    "gold_parse": "Time[]{2017-08-06 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "17 MAY, 19:25",
+    "ref_time": "2017-10-23T09:29:04",
+    "gold_parse": "Time[]{2018-05-17 19:25 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Mon 26th June 07:50-10:00",
+    "ref_time": "2017-06-20T11:10:56",
+    "gold_parse": "Interval[]{2017-06-26 07:50 (X/X) - 2017-06-26 10:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1 day",
+    "ref_time": "2017-11-03T15:07:20",
+    "gold_parse": "Interval[]{2017-11-07 X:X (X/X) - 2017-11-08 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "week 36",
+    "ref_time": "2017-08-15T17:43:29",
+    "gold_parse": "Interval[]{2017-09-04 X:X (X/X) - 2017-09-10 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "9 June, Friday 0845am",
+    "ref_time": "2017-05-23T08:51:04",
+    "gold_parse": "Time[]{2017-06-09 08:45 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Sunday morning",
+    "ref_time": "2017-08-29T08:13:19",
+    "gold_parse": "Time[]{2017-08-31 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "29.10.2017 21.00",
+    "ref_time": "2017-10-10T16:05:34",
+    "gold_parse": "Time[]{2017-10-29 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wed afternoon 29 Nov",
+    "ref_time": "2017-11-27T08:39:11",
+    "gold_parse": "Time[]{2017-11-29 X:X (X/afternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "8 Nov 1015",
+    "ref_time": "2017-08-25T12:15:35",
+    "gold_parse": "Time[]{2017-11-09 10:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "from today 9th of Aug to Fri 11th of Aug",
+    "ref_time": "2017-08-09T09:08:59",
+    "gold_parse": "Interval[]{2017-08-09 X:X (X/X) - 2017-08-11 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday early morning",
+    "ref_time": "2017-06-15T08:25:30",
+    "gold_parse": "Time[]{2017-06-27 X:X (X/earlymorning)}",
+    "language": "en"
+  },
+  {
+    "text": "on Thursday 23rd November around 6.30 p.m",
+    "ref_time": "2017-10-18T15:34:42",
+    "gold_parse": "Time[]{2017-11-23 18:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1 Dec 0710",
+    "ref_time": "2017-11-20T19:42:36",
+    "gold_parse": "Time[]{2017-12-01 07:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "after 15:00 on Sunday 17",
+    "ref_time": "2017-11-09T16:48:56",
+    "gold_parse": "Interval[]{2017-12-17 15:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "13 Nov",
+    "ref_time": "2017-08-25T12:23:01",
+    "gold_parse": "Time[]{2017-11-13 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "after 17:00 on Tuesday 19",
+    "ref_time": "2017-11-09T16:48:56",
+    "gold_parse": "Interval[]{2017-12-19 17:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "12-11-2017",
+    "ref_time": "2017-10-18T18:45:37",
+    "gold_parse": "Time[]{2017-11-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on the 22nd - 29th of August",
+    "ref_time": "2017-08-11T13:03:58",
+    "gold_parse": "Interval[]{2017-08-22 X:X (X/X) - 2017-08-29 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "14.9. 12:10",
+    "ref_time": "2017-09-12T14:17:43",
+    "gold_parse": "Time[]{2017-09-14 12:10 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "25 SEP, 15:50",
+    "ref_time": "2017-09-10T15:46:24",
+    "gold_parse": "Time[]{2017-09-25 15:50 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Tuesday 14th November 2017",
+    "ref_time": "2017-10-04T09:30:12",
+    "gold_parse": "Time[]{2017-11-14 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "early Thursday 30.11.2017",
+    "ref_time": "2017-11-27T08:35:45",
+    "gold_parse": "Time[]{2017-11-30 X:X (X/earlymorning)}",
+    "language": "en"
+  },
+  {
+    "text": "as early as possible on Friday morning",
+    "ref_time": "2017-10-24T15:27:27",
+    "gold_parse": "Time[]{2017-11-03 X:X (X/earlymorning)}",
+    "language": "en"
+  },
+  {
+    "text": "evening of Friday, June 23rd",
+    "ref_time": "2017-06-15T15:47:32",
+    "gold_parse": "Time[]{2017-06-23 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "10 approximately 9.00 a.m.",
+    "ref_time": "2017-10-02T13:56:00",
+    "gold_parse": "Time[]{2017-10-10 09:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "12 loka 15:05",
+    "ref_time": "2017-09-13T14:48:21",
+    "gold_parse": "Time[]{2017-10-12 15:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "from 25.10. to 26.10.",
+    "ref_time": "2017-10-25T05:19:21",
+    "gold_parse": "Interval[]{2017-10-25 X:X (X/X) - 2017-10-26 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Thursday 26.10",
+    "ref_time": "2017-10-23T11:18:24",
+    "gold_parse": "Time[]{2017-10-26 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "9 loka 21:45",
+    "ref_time": "2017-09-13T14:48:21",
+    "gold_parse": "Time[]{2017-10-09 21:45 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "October 25th 07:30am",
+    "ref_time": "2017-10-04T09:39:12",
+    "gold_parse": "Time[]{2017-10-25 07:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on June 17th after 3 pm.",
+    "ref_time": "2017-05-16T18:40:30",
+    "gold_parse": "Interval[]{2017-06-17 15:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "on the 12th of October",
+    "ref_time": "2017-10-05T14:14:05",
+    "gold_parse": "Time[]{2017-10-12 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "28/08 afternoon",
+    "ref_time": "2017-08-14T15:42:42",
+    "gold_parse": "Time[]{2017-08-28 X:X (X/afternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "27 Aug 1440",
+    "ref_time": "2017-07-25T07:19:36",
+    "gold_parse": "Time[]{2017-08-27 14:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "18th september 2017 - 06:25-08:05",
+    "ref_time": "2017-09-05T12:25:53",
+    "gold_parse": "Interval[]{2017-09-18 06:25 (X/X) - 2017-09-18 08:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Wednesday July 19th evening",
+    "ref_time": "2017-06-19T09:54:53",
+    "gold_parse": "Time[]{2016-07-19 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "on nov 6th",
+    "ref_time": "2017-10-24T16:16:26",
+    "gold_parse": "Time[]{2017-11-06 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Jun 21 Wed at 1105am",
+    "ref_time": "2017-06-25T17:46:46",
+    "gold_parse": "Time[]{2017-06-21 11:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "13.11.2017, 15h50",
+    "ref_time": "2017-11-09T16:40:57",
+    "gold_parse": "Time[]{2017-11-13 15:50 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Jan 8, 2018 0905-1340",
+    "ref_time": "2017-11-29T14:38:44",
+    "gold_parse": "Interval[]{2018-01-08 09:05 (X/X) - 2018-01-08 13:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on September 23",
+    "ref_time": "2017-08-30T11:54:52",
+    "gold_parse": "Time[]{2017-09-23 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "14-15.11.2017",
+    "ref_time": "2017-11-09T08:41:57",
+    "gold_parse": "Interval[]{2017-11-14 X:X (X/X) - 2017-11-15 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Thursday 21st in the late afternoon",
+    "ref_time": "2017-09-12T10:04:23",
+    "gold_parse": "Time[]{2017-09-21 X:X (X/lateafternoon)}",
+    "language": "en"
+  },
+  {
+    "text": "tomorrow evening Tue 28. Nov 2017",
+    "ref_time": "2017-11-27T19:37:43",
+    "gold_parse": "Time[]{2017-11-28 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "24 - 29",
+    "ref_time": "2017-08-30T10:02:11",
+    "gold_parse": "Interval[]{2017-09-24 X:X (X/X) - 2017-09-29 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "16 Nov 2330",
+    "ref_time": "2017-08-25T12:15:35",
+    "gold_parse": "Time[]{2017-11-16 23:30 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "morning of Wednesday, June 21st",
+    "ref_time": "2017-06-15T15:47:32",
+    "gold_parse": "Time[]{2017-06-21 X:X (X/morning)}",
+    "language": "en"
+  },
+  {
+    "text": "on the 5th Night",
+    "ref_time": "2017-10-24T12:08:03",
+    "gold_parse": "Time[]{2017-11-05 X:X (X/night)}",
+    "language": "en"
+  },
+  {
+    "text": "1.Jun at 6:34am.",
+    "ref_time": "2017-05-29T15:33:01",
+    "gold_parse": "Time[]{2017-06-01 06:34 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "from 3. to 5.10.2017",
+    "ref_time": "2017-10-02T06:20:20",
+    "gold_parse": "Interval[]{2017-10-03 X:X (X/X) - 2017-10-05 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "18th",
+    "ref_time": "2017-06-20T17:05:49",
+    "gold_parse": "Time[]{2017-08-18 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "June 18th",
+    "ref_time": "2017-06-12T08:39:41",
+    "gold_parse": "Time[]{2017-06-18 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on July 11 at 0705am",
+    "ref_time": "2017-07-05T09:23:08",
+    "gold_parse": "Time[]{2017-07-11 07:05 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Fri 19 May 18:40 - 19:55",
+    "ref_time": "2017-05-11T17:16:49",
+    "gold_parse": "Interval[]{2017-05-19 18:40 (X/X) - 2017-05-19 19:55 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "the 11th early morning at around 7.30/8am",
+    "ref_time": "2017-09-27T19:18:24",
+    "gold_parse": "Interval[]{2017-10-11 07:30 (X/X) - 2017-10-11 08:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Monday 24th",
+    "ref_time": "2017-07-17T12:57:50",
+    "gold_parse": "Time[]{2017-07-24 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "6 Nov 2359",
+    "ref_time": "2017-08-25T12:23:01",
+    "gold_parse": "Time[]{2017-11-06 23:59 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Sunday December 3rd at 6pm.",
+    "ref_time": "2017-10-17T15:21:29",
+    "gold_parse": "Time[]{2017-12-03 18:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "17 JUN 08:00",
+    "ref_time": "2017-05-23T09:39:45",
+    "gold_parse": "Time[]{2017-06-17 08:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Fri. 22 Sept. 16:25",
+    "ref_time": "2017-09-08T07:58:44",
+    "gold_parse": "Time[]{2017-09-22 16:25 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "July 26th",
+    "ref_time": "2017-06-26T09:49:16",
+    "gold_parse": "Time[]{2017-07-26 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "11 loka 09:25",
+    "ref_time": "2017-09-13T14:48:21",
+    "gold_parse": "Time[]{2017-10-11 09:25 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on Tuesday evening Nov 28th",
+    "ref_time": "2017-10-26T08:50:53",
+    "gold_parse": "Time[]{2017-11-28 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "21/09 1810-2020",
+    "ref_time": "2017-08-11T06:30:46",
+    "gold_parse": "Interval[]{2017-09-21 18:10 (X/X) - 2017-09-21 20:20 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "on 06/08 evening",
+    "ref_time": "2017-07-31T09:04:05",
+    "gold_parse": "Time[]{2017-08-06 X:X (X/evening)}",
+    "language": "en"
+  },
+  {
+    "text": "tomorrow 18th November at 13.00",
+    "ref_time": "2017-11-17T21:08:07",
+    "gold_parse": "Time[]{2017-11-18 13:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Monday 19.06",
+    "ref_time": "2017-05-24T08:15:22",
+    "gold_parse": "Time[]{2017-06-19 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "May 19 at 1120pm",
+    "ref_time": "2017-05-17T06:22:34",
+    "gold_parse": "Time[]{2017-05-19 23:20 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "20 october",
+    "ref_time": "2017-10-19T08:47:39",
+    "gold_parse": "Time[]{2017-10-20 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "early morning on Tuesday 12.12",
+    "ref_time": "2017-11-29T09:35:29",
+    "gold_parse": "Time[]{2017-12-12 X:X (X/earlymorning)}",
+    "language": "en"
+  },
+  {
+    "text": "Fri 11.8",
+    "ref_time": "2017-08-08T14:50:05",
+    "gold_parse": "Time[]{2017-08-11 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "05-06.10.17",
+    "ref_time": "2017-10-04T14:05:51",
+    "gold_parse": "Interval[]{2017-10-05 X:X (X/X) - 2017-10-06 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Oct. 11th - October 13th",
+    "ref_time": "2017-09-27T18:50:13",
+    "gold_parse": "Interval[]{2017-10-11 X:X (X/X) - 2017-10-13 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "1.9. 17:00 the earliest",
+    "ref_time": "2017-07-31T17:32:42",
+    "gold_parse": "Interval[]{2017-09-01 17:00 (X/X) - None}",
+    "language": "en"
+  },
+  {
+    "text": "one night",
+    "ref_time": "2017-09-06T05:40:32",
+    "gold_parse": "Duration[]{1 nights}",
+    "language": "en"
+  },
+  {
+    "text": "19th May 20:20",
+    "ref_time": "2017-05-10T11:09:25",
+    "gold_parse": "Time[]{2017-05-19 20:20 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "6:40am THURSDAY, 29th",
+    "ref_time": "2017-06-26T10:34:18",
+    "gold_parse": "Time[]{2017-06-29 06:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "24 Aug 1915-2015",
+    "ref_time": "2017-08-12T16:43:06",
+    "gold_parse": "Interval[]{2017-08-24 19:15 (X/X) - 2017-08-24 20:15 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "July 7th 7-9am",
+    "ref_time": "2017-07-03T12:40:32",
+    "gold_parse": "Interval[]{2017-07-07 07:00 (X/X) - 2017-07-07 09:00 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "Fri 18 Aug 1500-1735",
+    "ref_time": "2017-07-24T07:50:25",
+    "gold_parse": "Interval[]{2017-08-18 15:00 (X/X) - 2017-08-18 17:35 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "26/09 1210-1340",
+    "ref_time": "2017-09-15T16:21:39",
+    "gold_parse": "Interval[]{2017-09-26 12:10 (X/X) - 2017-09-26 13:40 (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "from Jul24 to Jul 25th",
+    "ref_time": "2017-07-18T18:50:36",
+    "gold_parse": "Interval[]{2017-07-24 X:X (X/X) - 2017-07-25 X:X (X/X)}",
+    "language": "en"
+  },
+
+  {
+    "text": "two to 4",
+    "ref_time": "2022-03-03T12:00:00",
+    "gold_parse": "Interval[]{2022-03-03 02:00 (X/X) - 2022-03-03 04:00 (X/X)}",
+    "language": "en"
+  },
+
+  {
+    "text": "eleven to one",
+    "ref_time": "2022-03-03T12:00:00",
+    "gold_parse": "Interval[]{2022-03-03 11:00 (X/X) - 2022-03-03 13:00 (X/X)}",
+    "language": "en"
+  },
+
+  {
+    "text": "for 3 hours",
+    "ref_time": "2022-03-03T14:05:00",
+    "gold_parse": "Interval[]{2022-03-03 11:05 (X/X) - 2022-03-03 14:05 (X/X)}",
+    "language": "en"
+  },
+
+  {
+    "text": "since 1 pm for 3 hours",
+    "ref_time": "2022-03-03T18:30:00",
+    "gold_parse": "Interval[]{2022-03-03 13:00 (X/X) - 2022-03-03 16:00 (X/X)}",
+    "language": "en"
+  },
+
+  {
+    "text": "from 11 a.m. for an hour",
+    "ref_time": "2022-03-03T13:30:00",
+    "gold_parse": "Interval[]{2022-03-03 11:00 (X/X) - 2022-03-03 12:00 (X/X)}",
+    "language": "en"
+  }
+]
