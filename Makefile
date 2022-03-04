@@ -51,9 +51,9 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	black --check ctparse tests
-	flake8 ctparse tests
-	mypy -p ctparse -p tests
+	black --check timenlp tests
+	flake8 timenlp tests
+	mypy -p timenlp -p tests
 
 test: ## run tests quickly with the default Python
 	py.test
@@ -65,7 +65,7 @@ train:
 	python scripts/train_default_model.py --legacy --dataset datasets/timeparse_corpus_en_only.json
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source ctparse -m pytest
+	coverage run --source timenlp -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html

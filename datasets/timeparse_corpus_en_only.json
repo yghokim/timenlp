@@ -2085,14 +2085,14 @@
   {
     "text": "two to 4",
     "ref_time": "2022-03-03T12:00:00",
-    "gold_parse": "Interval[]{2022-03-03 02:00 (X/X) - 2022-03-03 04:00 (X/X)}",
+    "gold_parse": "Interval[]{X-X-X 02:00 (X/X) - X-X-X 04:00 (X/X)}",
     "language": "en"
   },
 
   {
     "text": "eleven to one",
     "ref_time": "2022-03-03T12:00:00",
-    "gold_parse": "Interval[]{2022-03-03 11:00 (X/X) - 2022-03-03 13:00 (X/X)}",
+    "gold_parse": "Interval[]{X-X-X 11:00 (X/X) - X-X-X 13:00 (X/X)}",
     "language": "en"
   },
 
@@ -2114,14 +2114,14 @@
   {
     "text": "since 1 pm for 3 hours",
     "ref_time": "2022-03-03T18:30:00",
-    "gold_parse": "Interval[]{2022-03-03 13:00 (X/X) - 2022-03-03 16:00 (X/X)}",
+    "gold_parse": "Interval[]{X-X-X 13:00 (X/X) - X-X-X 16:00 (X/X)}",
     "language": "en"
   },
 
   {
     "text": "from 11 a.m. for an hour",
     "ref_time": "2022-03-03T13:30:00",
-    "gold_parse": "Interval[]{2022-03-03 11:00 (X/X) - 2022-03-03 12:00 (X/X)}",
+    "gold_parse": "Interval[]{X-X-X 11:00 (X/X) - X-X-X 12:00 (X/X)}",
     "language": "en"
   }
 ]
