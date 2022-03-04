@@ -452,7 +452,6 @@ def _maybe_apply_am_pm(t: Time, ampm_match: str) -> Time:
     if not t.hour:
         return t
     if ampm_match is None:
-        print("am pm latent.")
         t.meridiemLatent = True
         return t
     if ampm_match.lower().startswith("a") and t.hour <= 12:

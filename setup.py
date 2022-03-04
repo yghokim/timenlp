@@ -5,12 +5,6 @@
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
-    readme = readme_file.read()
-
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
-
 requirements = []
 
 setup_requirements = ['pytest-runner', ]
@@ -39,7 +33,6 @@ setup(
         'tqdm>=4.23.4,<5.0.0'
     ],
     license="MIT license",
-    long_description=readme + '\n\n' + history,
     include_package_data=True,
     keywords='timenlp time parsing natural language',
     name='timenlp',

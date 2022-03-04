@@ -379,7 +379,6 @@ class Time(Artifact):
 
     @property
     def isMeridiemLatent(self) -> bool:
-        print("meridiem latent:", self.meridiemLatent)
         return self.meridiemLatent if self.meridiemLatent is not None else False
 
     def to_datetime_unsafe(self) -> datetime:
