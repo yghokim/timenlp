@@ -1,7 +1,7 @@
 from unittest import TestCase
 import regex
-from ctparse.types import RegexMatch, Artifact
-from ctparse.rule import dimension, predicate, regex_match, rule
+from timenlp.types import RegexMatch, Artifact
+from timenlp.rule import dimension, predicate, regex_match, rule
 
 
 class TestClassA(Artifact):

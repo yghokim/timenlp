@@ -4,7 +4,7 @@ from .nb_estimator import MultinomialNaiveBayes
 from .count_vectorizer import CountVectorizer
 
 
-class CTParsePipeline:
+class TimeNLPPipeline:
     def __init__(self, transformer: CountVectorizer, estimator: MultinomialNaiveBayes):
         """Setup a pipeline of feature extraction and naive bayes. Overkill for what it
         does but leaves room to use different models/features in the future
@@ -19,7 +19,7 @@ class CTParsePipeline:
         self.transformer = transformer
         self.estimator = estimator
 
-    def fit(self, X: Sequence[Sequence[str]], y: Sequence[int]) -> "CTParsePipeline":
+    def fit(self, X: Sequence[Sequence[str]], y: Sequence[int]) -> "TimeNLPPipeline":
         """Fit the transformer and then fit the Naive Bayes model on the transformed
         data
 

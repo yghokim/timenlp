@@ -2,11 +2,11 @@
 import argparse
 import logging
 
-from ctparse.corpus import load_timeparse_corpus, make_partial_rule_dataset, run_corpus
-from ctparse.loader import DEFAULT_MODEL_FILE
-from ctparse.nb_scorer import save_naive_bayes, train_naive_bayes
-from ctparse.scorer import DummyScorer
-from ctparse.time import auto_corpus, corpus
+from timenlp.corpus import load_timeparse_corpus, make_partial_rule_dataset, run_corpus
+from timenlp.loader import DEFAULT_MODEL_FILE
+from timenlp.nb_scorer import save_naive_bayes, train_naive_bayes
+from timenlp.scorer import DummyScorer
+from timenlp.time import auto_corpus, corpus
 
 logger = logging.getLogger(__name__)
 

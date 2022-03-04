@@ -1,7 +1,7 @@
 from unittest import TestCase
 import regex
 from datetime import datetime
-from ctparse.types import Artifact, RegexMatch, Time, Interval
+from timenlp.types import Artifact, RegexMatch, Time, Interval
 
 
 class TestArtifact(TestCase):

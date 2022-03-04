@@ -3,13 +3,13 @@ import random
 import bz2
 import pickle
 
-from ctparse.nb_scorer import NaiveBayesScorer, train_naive_bayes, save_naive_bayes
-from ctparse.partial_parse import PartialParse
-from ctparse.scorer import DummyScorer, RandomScorer
-from ctparse.count_vectorizer import CountVectorizer
-from ctparse.nb_estimator import MultinomialNaiveBayes
-from ctparse.pipeline import CTParsePipeline
-from ctparse.types import Interval, Time
+from timenlp.nb_scorer import NaiveBayesScorer, train_naive_bayes, save_naive_bayes
+from timenlp.partial_parse import PartialParse
+from timenlp.scorer import DummyScorer, RandomScorer
+from timenlp.count_vectorizer import CountVectorizer
+from timenlp.nb_estimator import MultinomialNaiveBayes
+from timenlp.pipeline import TimeNLPPipeline
+from timenlp.types import Interval, Time
 
 
 def test_dummy():
@@ -60,7 +60,7 @@ def test_nbscorer():
 
 def test_naive_bayes_from_file(tmp_path):
     nb = NaiveBayesScorer(
-        CTParsePipeline(CountVectorizer((1, 1)), MultinomialNaiveBayes())
+        TimeNLPPipeline(CountVectorizer((1, 1)), MultinomialNaiveBayes())
     )
     path = tmp_path / "model.pkl"
     with bz2.open(path, "w") as f:
@@ -71,5 +71,5 @@ def test_naive_bayes_from_file(tmp_path):
 
 def test_save_naive_bayes(tmp_path):
     path = tmp_path / "model.pkl"
-    model = CTParsePipeline(CountVectorizer((1, 1)), MultinomialNaiveBayes())
+    model = TimeNLPPipeline(CountVectorizer((1, 1)), MultinomialNaiveBayes())
     save_naive_bayes(model, path)

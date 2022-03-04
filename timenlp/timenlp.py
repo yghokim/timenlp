@@ -1,4 +1,4 @@
-from ctparse.time.postprocess_latent import apply_postprocessing_rules
+from timenlp.time.postprocess_latent import apply_postprocessing_rules
 import logging
 from datetime import datetime
 from typing import (
@@ -18,7 +18,7 @@ import regex
 from .partial_parse import PartialParse
 from .rule import _regex as global_regex
 from .scorer import Scorer
-from .timers import CTParseTimeoutError, timeit
+from .timers import TimeNLPTimeoutError, timeit
 
 # Avoid collision with variable "timeout"
 from .timers import timeout as timeout_
@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 _DEFAULT_SCORER = load_default_scorer()
 
 
-class CTParse:
+class TimeNLP:
     def __init__(
         self,
         resolution: Artifact,
@@ -50,7 +50,7 @@ class CTParse:
         self.score = score
 
     def __repr__(self) -> str:
-        return "CTParse({}, {}, {})".format(
+        return "TimeNLP({}, {}, {})".format(
             self.resolution, self.production, self.score
         )
 
@@ -58,7 +58,7 @@ class CTParse:
         return "{} s={:.3f} p={}".format(self.resolution, self.score, self.production)
 
 
-def ctparse(
+def timenlp(
     txt: str,
     ts: Optional[datetime] = None,
     timeout: Union[int, float] = 1.0,
@@ -67,7 +67,7 @@ def ctparse(
     max_stack_depth: int = 10,
     scorer: Optional[Scorer] = None,
     latent_time: bool = True,
-) -> Optional[CTParse]:
+) -> Optional[TimeNLP]:
     """Parse a string *txt* into a time expression
 
     :param ts: reference time
@@ -89,9 +89,9 @@ def ctparse(
     :param latent_time: if True, resolve expressions that contain only a time
                         (e.g. 8:00 pm) to be the next matching time after
                         reference time *ts*
-    :returns: Optional[CTParse]
+    :returns: Optional[TimeNLP]
     """
-    parsed = ctparse_gen(
+    parsed = timenlp_gen(
         txt,
         ts,
         timeout=timeout,
@@ -113,7 +113,7 @@ def ctparse(
         return parsed_list[-1]
 
 
-def ctparse_gen(
+def timenlp_gen(
     txt: str,
     ts: Optional[datetime] = None,
     timeout: Union[int, float] = 1.0,
@@ -121,7 +121,7 @@ def ctparse_gen(
     max_stack_depth: int = 10,
     scorer: Optional[Scorer] = None,
     latent_time: bool = True,
-) -> Iterator[Optional[CTParse]]:
+) -> Iterator[Optional[TimeNLP]]:
     """Generate parses for the string *txt*.
 
     This function is equivalent to ctparse, with the exception that it returns an
@@ -131,7 +131,7 @@ def ctparse_gen(
         scorer = _DEFAULT_SCORER
     if ts is None:
         ts = datetime.now()
-    for parse in _ctparse(
+    for parse in _timenlp(
         _preprocess_string(txt),
         ts,
         timeout=timeout,
@@ -149,14 +149,14 @@ def ctparse_gen(
         yield parse
 
 
-def _ctparse(
+def _timenlp(
     txt: str,
     ts: datetime,
     timeout: float,
     relative_match_len: float,
     max_stack_depth: int,
     scorer: Scorer,
-) -> Iterator[Optional[CTParse]]:
+) -> Iterator[Optional[TimeNLP]]:
     t_fun = timeout_(timeout)
 
     try:
@@ -251,7 +251,7 @@ def _ctparse(
                             logger.debug(
                                 " => {}, score={:.2f}, ".format(x.__repr__(), score_x)
                             )
-                            yield CTParse(x, s.rules, score_x)
+                            yield TimeNLP(x, s.rules, score_x)
             else:
                 # new productions generated, put on stack and sort
                 # stack by highst score
@@ -263,7 +263,7 @@ def _ctparse(
                         len(new_stack_elements), len(stack)
                     )
                 )
-    except CTParseTimeoutError:
+    except TimeNLPTimeoutError:
         logger.debug('Timeout on "{}"'.format(txt))
         return
 

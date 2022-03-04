@@ -18,8 +18,8 @@ setup_requirements = ['pytest-runner', ]
 test_requirements = ['pytest', ]
 
 setup(
-    author="Sebastian Mika/Comtravo",
-    author_email='sebastian.mika@comtravo.com',
+    author="Young-Ho Kim",
+    author_email='yghokim@younghokim.net',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -32,7 +32,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing :: Linguistic',
     ],
-    description="Parse natural language time expressions in python",
+    description="Natural language time expression parser in python, built upon ctparse but focusing on the past time and ranges.",
     install_requires=[
         'python-dateutil>=2.7.3,<3.0.0',
         'regex>=2018.6.6',
@@ -41,15 +41,15 @@ setup(
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='ctparse time parsing natural language',
-    name='ctparse',
-    packages=find_packages(include=['ctparse*']),
-    package_dir={'ctparse': 'ctparse'},
-    package_data={'ctparse': ['models/model.pbz', 'py.typed']},
+    keywords='timenlp time parsing natural language',
+    name='timenlp',
+    packages=find_packages(include=['timenlp*']),
+    package_dir={'timenlp': 'timenlp'},
+    package_data={'timenlp': ['models/model.pbz', 'py.typed']},
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/comtravo/ctparse',
+    url='https://github.com/yghokim/timenlp',
     version='0.3.1',
     zip_safe=False,
 )

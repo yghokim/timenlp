@@ -5,7 +5,7 @@ from typing import Callable, Iterable, List, NamedTuple, Sequence, Tuple, TypeVa
 
 from tqdm import tqdm
 
-from .ctparse import ctparse_gen
+from .timenlp import timenlp_gen
 from .scorer import DummyScorer, Scorer
 from .types import Artifact, Duration, Interval, Time
 
@@ -68,7 +68,7 @@ def make_partial_rule_dataset(
         entries_it = entries
 
     for entry in entries_it:
-        for parse in ctparse_gen(
+        for parse in timenlp_gen(
             entry.text,
             entry.ts,
             relative_match_len=relative_match_len,
@@ -177,7 +177,7 @@ def run_corpus(
             one_prod_passes = False
             first_prod = True
             y_score = []
-            for parse in ctparse_gen(
+            for parse in timenlp_gen(
                 test,
                 ts,
                 relative_match_len=1.0,

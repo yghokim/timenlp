@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from ctparse.types import Time
-from ctparse.time.rules import (
+from timenlp.types import Time
+from timenlp.time.rules import (
     ruleDateDate,
     ruleDOMDate,
     ruleDateTimeDateTime,

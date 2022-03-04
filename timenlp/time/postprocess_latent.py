@@ -1,6 +1,6 @@
 """Those rules are applied as postprocessing steps after scoring has been already
 done. Needed for backwards compatibility."""
-from ctparse.types import Artifact, Interval, Time
+from timenlp.types import Artifact, Interval, Time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 

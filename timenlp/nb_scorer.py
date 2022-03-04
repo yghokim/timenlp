@@ -5,16 +5,16 @@ import pickle
 from datetime import datetime
 from typing import Sequence
 
-from ctparse.nb_estimator import MultinomialNaiveBayes
-from ctparse.count_vectorizer import CountVectorizer
-from ctparse.pipeline import CTParsePipeline
+from timenlp.nb_estimator import MultinomialNaiveBayes
+from timenlp.count_vectorizer import CountVectorizer
+from timenlp.pipeline import TimeNLPPipeline
 from .scorer import Scorer
 from .partial_parse import PartialParse
 from .types import Artifact
 
 
 class NaiveBayesScorer(Scorer):
-    def __init__(self, nb_model: CTParsePipeline) -> None:
+    def __init__(self, nb_model: TimeNLPPipeline) -> None:
         """Scorer based on a naive bayes estimator.
 
         This scorer models the probability of having a correct parse, conditioned
@@ -76,18 +76,18 @@ def _feature_extractor(
     return [str(r) for r in partial_parse.rules]
 
 
-def train_naive_bayes(X: Sequence[Sequence[str]], y: Sequence[bool]) -> CTParsePipeline:
+def train_naive_bayes(X: Sequence[Sequence[str]], y: Sequence[bool]) -> TimeNLPPipeline:
     """Train a naive bayes model for NaiveBayesScorer"""
     y_binary = [1 if y_i else -1 for y_i in y]
     # Create and train the pipeline
-    pipeline = CTParsePipeline(
+    pipeline = TimeNLPPipeline(
         CountVectorizer(ngram_range=(1, 3)), MultinomialNaiveBayes(alpha=1.0)
     )
     model = pipeline.fit(X, y_binary)
     return model
 
 
-def save_naive_bayes(model: CTParsePipeline, fname: str) -> None:
+def save_naive_bayes(model: TimeNLPPipeline, fname: str) -> None:
     """Save a naive bayes model for NaiveBayesScorer"""
     # TODO: version this model and dump metadata with lots of information
     with bz2.open(fname, "wb") as fd:

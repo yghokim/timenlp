@@ -1,5 +1,5 @@
 import pytest
-from ctparse.count_vectorizer import CountVectorizer
+from timenlp.count_vectorizer import CountVectorizer
 
 
 @pytest.mark.parametrize(

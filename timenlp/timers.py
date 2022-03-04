@@ -34,7 +34,7 @@ def timeout(timeout: Union[float, int]) -> Callable[[], None]:
         if timeout == 0:
             return
         if perf_counter() - start_time > timeout:
-            raise CTParseTimeoutError()
+            raise TimeNLPTimeoutError()
 
     return _tt
 
@@ -66,5 +66,5 @@ def timeit(f: Callable[..., T]) -> Callable[..., Tuple[T, float]]:
 # NOTE: TimeoutError is a built-in exception that means that
 # system function timed out at the system level. Hence we opt
 # for a custom exception.
-class CTParseTimeoutError(Exception):
+class TimeNLPTimeoutError(Exception):
     """Exception raised by the `timeout` function."""

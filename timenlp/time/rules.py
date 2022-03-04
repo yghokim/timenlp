@@ -6,7 +6,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import rrule, MONTHLY
 
-from ctparse.time.postprocess_latent import _latent_tod
+from timenlp.time.postprocess_latent import _latent_tod
 from ..rule import rule, predicate, dimension, _regex_to_join
 from ..types import Time, Duration, Interval, pod_hours, RegexMatch, DurationUnit
 

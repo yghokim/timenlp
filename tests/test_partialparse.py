@@ -4,8 +4,8 @@ from typing import Any, Callable
 import pytest
 import regex
 
-from ctparse.partial_parse import PartialParse, _seq_match
-from ctparse.types import RegexMatch, Time
+from timenlp.partial_parse import PartialParse, _seq_match
+from timenlp.types import RegexMatch, Time
 
 
 def test_partial_parse() -> None:

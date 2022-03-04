@@ -2,16 +2,16 @@ from datetime import datetime
 
 import pytest
 
-from ctparse.corpus import (
+from timenlp.corpus import (
     TimeParseEntry,
     load_timeparse_corpus,
     make_partial_rule_dataset,
     parse_nb_string,
     run_corpus,
 )
-from ctparse.scorer import DummyScorer
-from ctparse.time.corpus import corpus
-from ctparse.types import Interval, Time
+from timenlp.scorer import DummyScorer
+from timenlp.time.corpus import corpus
+from timenlp.types import Interval, Time
 
 CORPUS_JSON = """
 [
