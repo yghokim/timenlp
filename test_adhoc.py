@@ -13,8 +13,9 @@ from ctparse import ctparse
 
 def test():
   ref = datetime(2022, 3, 3, 13,30)
-  parsed = ctparse("I did it for one and a half hour.", ts=ref, latent_time=True, debug=False)
-  print(parsed.resolution)
+  parsed = ctparse("3 1/4 of an hour", ts=ref, latent_time=True, debug=False)
+  print(parsed)
+  
   assert True
 
 

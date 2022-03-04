@@ -1,5 +1,7 @@
+import re
+from string import digits
 from time import time
-from typing import Optional, Any, cast
+from typing import List, Optional, Any, Tuple, cast
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import rrule, MONTHLY
@@ -758,54 +760,73 @@ def rulePODInterval(ts: datetime, p: Time, i: Interval) -> Optional[Interval]:
     return Interval(t_from=t_from, t_to=t_to)
 
 
-# We add named numbers at least until 31 (max number of days in a month)
-_named_number = (
-    (1, r"an?|one|ein[es]?"),
-    (2, r"two|zwei"),
-    (3, r"three|drei"),
-    (4, r"four|vier"),
-    (5, r"five|fünf"),
-    (6, r"six|sechs"),
-    (7, r"seven|sieben"),
-    (8, r"eight|acht"),
-    (9, r"nine|neun"),
-    (10, r"ten|zehn"),
-    (11, r"eleven|elf"),
-    (12, r"twelve|zwölf"),
-    (13, r"thirteen|dreizehn"),
-    (14, r"fourteen|vierzehn"),
-    (15, r"fifteen|fünfzehn"),
-    (16, r"sixteen|sechszehn"),
-    (17, r"seventeen|siebzehn"),
-    (18, r"eighteen|achtzehn"),
-    (19, r"nineteen|neunzehn"),
-    (20, r"twenty|zwanzig"),
-    (21, r"twentyone|einund?zwanzig"),
-    (22, r"twentytwo|zweiund?zwanzig"),
-    (23, r"twentythree|dreiund?zwanzig"),
-    (24, r"twentyfour|vierund?zwanzig"),
-    (25, r"twentyfive|fünfund?zwanzig"),
-    (26, r"twentysix|sechsund?zwanzig"),
-    (27, r"twentyseven|siebenud?zwanzig"),
-    (28, r"twentyeight|achtund?zwanzig"),
-    (29, r"twentynine|neunund?zwanzig"),
-    (30, r"thirty|drei(ß|ss)ig"),
-    (31, r"thirtyone|einundrei(ß|ss)ig"),
-)
-_rule_named_number = "|".join(
-    r"(?P<n_{}>{}\b)".format(n, expr) for n, expr in _named_number
-)
-_rule_named_number = r"({})\s*".format(_rule_named_number)
 
-_rule_named_number = _rule_template_uncertainty.format(_rule_named_number)
+_named_number = (
+    (1, r"an?|one"),
+    (2, r"two"),
+    (3, r"three"),
+    (4, r"four"),
+    (5, r"five"),
+    (6, r"six"),
+    (7, r"seven"),
+    (8, r"eight"),
+    (9, r"nine"),
+    (10, r"ten"),
+    (11, r"eleven"),
+    (12, r"twelve"),
+    (13, r"thirteen"),
+    (14, r"fourteen"),
+    (15, r"fifteen"),
+    (16, r"sixteen"),
+    (17, r"seventeen"),
+    (18, r"eighteen"),
+    (19, r"nineteen"),
+    (20, r"twenty")
+)
+
+_tens = ["ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+_ones = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+def _get_human_readable_number_regex_larger_than_20(n: int) -> Optional[str]:
+    hundreds = n // 100
+    tens = (n - hundreds * 100) // 10
+    ones = (n - hundreds * 100 - tens * 10) % 10
+
+    res = ""
+
+    if hundreds >= 10:
+        return None
+    else:
+        if hundreds > 0:
+            res += _named_number[hundreds-1][1] + r"\s+hundreds?\s+(?:and\s+)?"
+        if tens > 0:
+            if ones == 0:
+                res += _tens[tens-1]
+            else:
+                res += "{t}{o}|{t}-{o}|(?:{t} {o})".format(t=_tens[tens-1] ,o=_ones[ones-1]) 
+        else:
+            if ones > 0:
+                res += _ones[ones-1]
+        
+        return res
+
+_named_number += tuple((i, _get_human_readable_number_regex_larger_than_20(i)) for i in range(21, 60))
+
+def _make_rule_named_number(l:List[Tuple[int, str]], group_name_prefix="n_")->str:
+    rule = "|".join(r"(?P<{}{}>{}\b)".format(group_name_prefix, n, expr) for n, expr in l)
+    return rule
+
+_rule_named_number = _make_rule_named_number(_named_number)
+_rule_named_number = r"({})\s+".format(_rule_named_number)
+_rule_named_number = _rule_template_uncertainty.format(_rule_named_number) 
 
 _durations = [
-    (DurationUnit.NIGHTS, r"n[aä]chte?|nights?|[üu]bernachtung"),
-    (DurationUnit.DAYS, r"tage?|days?"),
-    (DurationUnit.MINUTES, r"m(inute[ns]?)?"),
-    (DurationUnit.HOURS, r"stunden?|h(ours?)?"),
-    (DurationUnit.WEEKS, r"weeks?|wochen?"),
-    (DurationUnit.MONTHS, r"monate?|months?"),
+    (DurationUnit.NIGHTS, r"nights?"),
+    (DurationUnit.DAYS, r"days?"),
+    (DurationUnit.MINUTES, r"m(?:inutes?)?"),
+    (DurationUnit.HOURS, r"h(?:ours?)?"),
+    (DurationUnit.WEEKS, r"weeks?"),
+    (DurationUnit.MONTHS, r"months?"),
 ]
 
 
@@ -816,7 +837,7 @@ _rule_durations = r"({})\s*".format(_rule_durations)
 
 
 # Rules regarding durations
-@rule(_rule_template_uncertainty.format(r"(?P<num>\d+)\s*") + _rule_durations)
+@rule(_rule_template_uncertainty.format(r"(?P<num>\d+)\s+") + _rule_durations)
 def ruleDigitDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
     # 1 day, 1 night etc.
     num = m.match.group("num")
@@ -848,18 +869,30 @@ def ruleNamedNumberDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
     return None
 
 
-@rule(r"(hal[fb]e?|1/2)(\s+an?)?\s*" + _rule_durations)
+@rule(r"(?:an?\s+)?(hal[fb]e?|1/2)(\s+(?:of\s+)?an?)?\s*" + _rule_durations)
 def ruleDurationHalf(ts: datetime, m: RegexMatch) -> Optional[Duration]:
     # half day, half hour, 1/2 hour
     for n, _, in _durations:
         if m.match.group("d_" + n.value):
             if n == DurationUnit.HOURS:
-                return Duration(30, DurationUnit.MINUTES)
+                return Duration(30, DurationUnit.MINUTES, {"fraction": "half"})
             if n == DurationUnit.DAYS:
-                return Duration(12, DurationUnit.HOURS)
+                return Duration(12, DurationUnit.HOURS, {"fraction": "half"})
 
     return None
 
+
+@rule(r"(?:an?\s+)?(quarter|1/4)(\s+(?:of\s+)?an?)?\s+" + _rule_durations)
+def ruleDurationQuarter(ts: datetime, m: RegexMatch) -> Optional[Duration]:
+    # quarter day, quarter hour, 1/4 hour
+    for n, _, in _durations:
+        if m.match.group("d_" + n.value):
+            if n == DurationUnit.HOURS:
+                return Duration(15, DurationUnit.MINUTES, {"fraction": "quarter"})
+            if n == DurationUnit.DAYS:
+                return Duration(8, DurationUnit.HOURS, {"fraction": "quarter"})
+
+    return None
 
 @rule(predicate("isDateInterval"), r"f[üo]r", dimension(Duration))
 def ruleIntervalConjDuration(
@@ -976,3 +1009,143 @@ def ruleTimeDurationTime(ts: datetime, _1: RegexMatch, t: Time, _2: RegexMatch, 
             end = Time(year=t.year, month=t.month, day=t.day, hour=end_ts.hour, minute=end_ts.minute)
         
     return Interval(t_from=t, t_to=end)
+
+
+@rule(dimension(Duration), dimension(Duration))
+def ruleDurationDuration(ts: datetime, dur1: Duration, dur2: Duration) -> Optional[Duration]:
+    if dur1.unit == DurationUnit.DAYS and (dur2.unit == DurationUnit.HOURS or dur2.unit == DurationUnit.MINUTES):
+        if dur2.unit == DurationUnit.HOURS:
+            return Duration(dur1.value * 24 + dur2.value, DurationUnit.HOURS)
+        elif dur2.unit == DurationUnit.MINUTES:
+            return Duration(dur1.value * 24 * 60 + dur2.value, DurationUnit.MINUTES)
+        else: return None
+    elif dur1.unit == DurationUnit.HOURS and dur2.unit == DurationUnit.MINUTES:
+        return Duration(dur1.value * 60 + dur2.value, DurationUnit.MINUTES)
+
+@rule(dimension(Duration), r"and", dimension(Duration))
+def ruleDurationAndDuration(ts: datetime, dur1: Duration, _: RegexMatch, dur2: Duration) -> Optional[Duration]:
+   return ruleDurationDuration(ts, dur1, dur2)
+
+@rule(dimension(Duration), r"and (?:a\s+)?half")
+def ruleDurationAndHalf(ts: datetime, dur1: Duration, _: RegexMatch) -> Optional[Duration]:
+    if dur1.unit == DurationUnit.HOURS:
+        return Duration(dur1.value * 60 + 30, DurationUnit.MINUTES)
+    elif dur1.unit == DurationUnit.DAYS:
+        return Duration(dur1.value * 24 + 12, DurationUnit.HOURS)
+    else:
+        return None
+
+
+#Modified by Young-Ho
+
+@rule(r"(?P<left>\d+)(?P<separator>\.|\/)(?P<right>\d+)\s+" + r"(?:of\s+)?(?:an?\s+)?" + _rule_durations)
+def ruleRatialDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
+    separator = m.match.group("separator")
+
+    if separator == ".":
+        # 1.5 day, 1.5 hours etc.
+        digit = m.match.group("left")
+        decimal = m.match.group("right")
+
+        if digit:
+            for n, _, in _durations:
+                unit = m.match.group("d_" + n.value)
+                if unit:
+                    if decimal:
+                        if n.value == "hours":
+                            return Duration(round(int(digit) * 60 + float("0." +decimal) * 60), DurationUnit.MINUTES, tag={"fraction": digit +"." + decimal})
+                        elif n.value == "days":
+                            return Duration(round(int(digit) * 24 + float("0." +decimal) * 24), DurationUnit.HOURS, tag={"fraction": digit +"." + decimal})
+                    else:
+                        return Duration(int(digit), n)
+    elif separator == "/":
+         # 1/2 day, 1/4 huors etc.
+
+        numerator = m.match.group("left")
+        denominator = m.match.group("right")
+
+        if numerator and denominator:
+            for n, _, in _durations:
+                unit = m.match.group("d_" + n.value)
+                if unit:
+                    ratio = int(numerator) / int(denominator)
+                    if n.value == "hours":
+                        return Duration(round(ratio * 60), DurationUnit.MINUTES, {"fraction": ratio})
+                    elif n.value == "days":
+                        return Duration(round(ratio * 24), DurationUnit.HOURS, {"fraction": ratio})
+               
+    return None
+
+def _ruleDigitAndFractionDuration(digit: int, dur: Duration) -> Optional[Duration]:
+
+    if dur.unit == DurationUnit.HOURS:
+        return Duration(digit * 24 + dur.value, DurationUnit.HOURS)
+    elif dur.unit == DurationUnit.MINUTES:
+        return Duration(digit * 60 + dur.value, DurationUnit.MINUTES)
+
+    return None
+
+@rule(r"(?:(?P<num>\d+)|{})(?:\s+and)?".format(_make_rule_named_number(_named_number[0:23], "digit_")), predicate("isFractionalDuration"))
+def ruleDigitAndFractionDuration(ts: datetime, m: RegexMatch, dur: Duration) -> Optional[Duration]:
+
+    digit = None
+    if m.match.group("num"):
+        digit = int(m.match.group("num"))
+    else:
+        for n in range(1,24):
+            if m.match.group("digit_" + str(n)):
+                digit = n
+                break
+    
+    if digit:
+        return _ruleDigitAndFractionDuration(digit, dur)
+    else: return None
+
+_rule_duration_fractions = r"(?P<frac_digit>\d+)|"+_make_rule_named_number(_named_number[0:3], "frac_c_")
+
+_rule_duration_fractions = r"({})\s+".format(_rule_duration_fractions)
+_rule_duration_fractions = _rule_template_uncertainty.format(_rule_duration_fractions) 
+
+
+_fractions = [(4, r"quarters?"), (2, r"hal(?:f|ves)"), (3, r"thirds?")]
+_rule_fractions = "|".join(r"(?P<frac1_{}>{})".format(n, r) for n, r in _fractions)
+
+_rule_duration_fractions += r"({})\s+".format(_rule_fractions) + r"(?:of\s+)?(?:an?\s+)?" + r"(?:{})\b".format(r"|".join(
+    r"(?P<d_{}>{}\b)".format(dur.value, expr) for dur, expr in _durations)
+)
+
+@rule(_rule_duration_fractions)
+def ruleDurationFraction(ts: datetime, m: RegexMatch) -> Optional[Duration]:
+    # half day, half hour, 1/2 hour, 3 quarters of day
+
+    fraction = None
+
+    #Find base fraction
+    for n, _, in _fractions:
+        if m.match.group("frac1_" + str(n)):
+            fraction = 1/n
+            break    
+    
+    if fraction is None:
+        return None
+
+    #Find fraction multiples
+    if m.match.group("frac_digit"):
+        digit = m.match.group("frac_digit")
+        fraction *= int(digit)
+    else:
+        for n in range(1,4):
+            if m.match.group("frac_c_" + str(n)):
+                fraction *= n
+                break
+    
+    #Find duration unit
+    for n, _, in _durations:
+        unit = m.match.group("d_" + n.value)
+        if unit:
+            if n.value == "hours":
+                return Duration(round(fraction * 60), DurationUnit.MINUTES, tag={"fraction": fraction})
+            elif n.value == "days":
+                return Duration(round(fraction * 24), DurationUnit.HOURS, tag={"fraction": fraction})
+
+    return None

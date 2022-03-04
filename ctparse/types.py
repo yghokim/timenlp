@@ -273,6 +273,7 @@ class Time(Artifact):
         minute: Optional[int] = None,
         DOW: Optional[int] = None,
         POD: Optional[str] = None,
+        tag: Optional[dict] = None
     ) -> None:
         super().__init__()
         self._attrs = ["year", "month", "day", "hour", "minute", "DOW", "POD"]
@@ -506,7 +507,7 @@ class DurationUnit(enum.Enum):
 
 
 class Duration(Artifact):
-    def __init__(self, value: int, unit: DurationUnit):
+    def __init__(self, value: int, unit: DurationUnit, tag: Optional[dict] = None):
         """Create a Duration using value and unit.
 
         Typical values for unit are:
@@ -516,6 +517,7 @@ class Duration(Artifact):
         super().__init__()
         self.value = value
         self.unit = unit
+        self.tag = tag
 
     def __str__(self) -> str:
         return "{} {}".format(self.value, self.unit.value)
@@ -524,3 +526,9 @@ class Duration(Artifact):
     def from_str(cls: Type["Duration"], text: str) -> "Duration":
         value, unit = text.split()
         return Duration(int(value), DurationUnit(unit))
+
+    @property
+    def isFractionalDuration(self) -> bool:
+        if self.tag is not None:
+            return bool("fraction" in self.tag)
+        else: return False

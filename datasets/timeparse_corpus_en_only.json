@@ -2103,6 +2103,14 @@
     "language": "en"
   },
 
+
+  {
+    "text": "1 and a half hours",
+    "ref_time": "2022-03-03T14:05:00",
+    "gold_parse": "Duration[]{90 minutes}",
+    "language": "en"
+  },
+
   {
     "text": "since 1 pm for 3 hours",
     "ref_time": "2022-03-03T18:30:00",

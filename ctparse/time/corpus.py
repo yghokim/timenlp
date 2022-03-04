@@ -707,20 +707,20 @@ corpus = [
     (
         "Duration[]{1 nights}",
         "2020-02-25T12:34",
-        ["one night", "ein nacht", "eine übernachtung"],
+        ["one night", "1 night"],
     ),
-    ("Duration[]{30 days}", "2020-02-25T12:34", ["30 days", "30 tage"],),
-    ("Duration[]{7 weeks}", "2020-02-25T12:34", ["7 weeks", "7 wochen"],),
+    ("Duration[]{30 days}", "2020-02-25T12:34", ["30 days"],),
+    ("Duration[]{7 weeks}", "2020-02-25T12:34", ["7 weeks"],),
     (
         "Duration[]{20 minutes}",
         "2020-02-25T12:34",
-        ["20 minutes", "twenty minutes", "zwanzig Minuten"],
+        ["20 minutes", "twenty minutes"],
     ),
-    ("Duration[]{1 months}", "2020-02-25T12:34", ["1 month", "one month", "ein Monat"]),
+    ("Duration[]{1 months}", "2020-02-25T12:34", ["1 month", "one month"]),
     (
         "Duration[]{30 minutes}",
         "2020-02-25T12:34",
-        ["half an hour", "half hour", "1/2 hour", "1/2h", "1/2 h", "halbe Stunde"],
+        ["half an hour", "half hour", "1/2 hour", "1/2h", "1/2 h", "0.5 hour"],
     ),
     # ruleTimeDuration
     (
@@ -768,6 +768,51 @@ corpus = [
         ["since 10 minutes ago for approximately 45 minutes"]
     ),
 
+    #Compound duration
+    ( #added by Young-Ho
+        "Duration[]{36 hours}",
+        "2022-03-03T18:30",
+        ["1 and a half days", "1.5 days", "one and 0.5 days", "one and a half days"]
+    ),
+
+    ( #added by Young-Ho
+        "Duration[]{45 minutes}",
+        "2022-03-03T18:30",
+        ["3 quarters of an hour", "three quarter an hour", "3/4 of an hour"]
+    ),
+
+
+    ( #added by Young-Ho
+        "Duration[]{195 minutes}",
+        "2022-03-03T18:30",
+        ["3 and 1/4 of an hour"]
+    ),
+
+
+    ( #added by Young-Ho
+        "Duration[]{15 minutes}",
+        "2022-03-03T18:30",
+        ["quarter hour", "a quarter of an hour"]
+    ),
+
+    ( #added by Young-Ho
+        "Duration[]{90 minutes}",
+        "2022-03-03T18:30",
+        ["1 and a half hours", "1.5 hours", "one and 0.5 hours", "one and a half hours", "an hour and a half", "one hour and a half"]
+    ),
+
+    ( #added by Young-Ho
+        "Duration[]{90 minutes}",
+        "2022-03-03T18:30",
+        ["1 hour and 30 minutes", "an hour and 30 minutes", "an hour and thirty minutes"]
+    ),
+
+    ( #added by Young-Ho
+        "Duration[]{30 minutes}",
+        "2022-03-03T18:30",
+        ["thirty minutes"]
+    ),
+    
     # ruleDurationInterval, ruleIntervalDuration
     (
         "Interval[]{2020-11-15 X:X (X/X) - 2020-11-18 X:X (X/X)}",
