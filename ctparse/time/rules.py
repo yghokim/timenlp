@@ -98,7 +98,7 @@ def ruleNamedHour(ts: datetime, m: RegexMatch) -> Optional[Time]:
     match = m.match
     for n, _, in _named_ts:
         if match.group("t_{}".format(n)):
-            return Time(hour=n, minute=0)
+            return Time(hour=n, minute=0, meridiemLatent=True)
     return None
 
 
@@ -448,14 +448,18 @@ def _is_valid_military_time(ts: datetime, t: Time) -> bool:
 
 
 def _maybe_apply_am_pm(t: Time, ampm_match: str) -> Time:
+
     if not t.hour:
         return t
     if ampm_match is None:
+        print("am pm latent.")
+        t.meridiemLatent = True
         return t
     if ampm_match.lower().startswith("a") and t.hour <= 12:
+        t.meridiemLatent = False
         return t
     if ampm_match.lower().startswith("p") and t.hour < 12:
-        return Time(hour=t.hour + 12, minute=t.minute)
+        return Time(hour=t.hour + 12, minute=t.minute, meridiemLatent=False)
     # the case ampm_match.startswith('a') and t.hour >
     # 12 (e.g. 13:30am) makes no sense, lets ignore the ampm
     # likewise if hour >= 12 no 'pm' action is needed

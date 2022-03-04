@@ -12,9 +12,10 @@ logger.setLevel(logging.DEBUG)
 from ctparse import ctparse
 
 def test():
-  ref = datetime(2022, 3, 3, 13,30)
-  parsed = ctparse("3 1/4 of an hour", ts=ref, latent_time=True, debug=False)
+  ref = datetime(2022, 3, 3, 23,30)
+  parsed = ctparse("ten to eleven, read a book 3 pages.", ts=ref, latent_time=True, debug=False)
   print(parsed)
+  print(parsed.resolution)
   
   assert True
 

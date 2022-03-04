@@ -273,6 +273,7 @@ class Time(Artifact):
         minute: Optional[int] = None,
         DOW: Optional[int] = None,
         POD: Optional[str] = None,
+        meridiemLatent: Optional[bool] = None,
         tag: Optional[dict] = None
     ) -> None:
         super().__init__()
@@ -285,6 +286,8 @@ class Time(Artifact):
         self.minute = minute
         self.DOW = DOW
         self.POD = POD
+        self.meridiemLatent = meridiemLatent
+        self.tag = tag
 
     # -----------------------------------------------------------------------------
     # Make sure to not accidentially test bool(x) as False when x==0, but you meant
@@ -373,6 +376,17 @@ class Time(Artifact):
     def hasPOD(self) -> bool:
         """at least a part of day"""
         return self._hasAtLeast("POD")
+
+    @property
+    def isMeridiemLatent(self) -> bool:
+        print("meridiem latent:", self.meridiemLatent)
+        return self.meridiemLatent if self.meridiemLatent is not None else False
+
+    def to_datetime_unsafe(self) -> datetime:
+        """convert to a datetime object"""
+        return datetime(
+            year = self.year, month = self.month, day = self.day, hour = self.hour, minute = self.minute
+            )
 
     def __str__(self) -> str:
         return "{}-{}-{} {}:{} ({}/{})".format(
