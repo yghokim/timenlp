@@ -15,3 +15,4 @@ pytest-runner==5.3.2
 pytest-cov==2.9.0
 mypy==0.780
 black==19.10b0
+pyyaml

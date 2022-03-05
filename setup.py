@@ -9,7 +9,7 @@ requirements = []
 
 setup_requirements = ['pytest-runner', ]
 
-test_requirements = ['pytest', ]
+test_requirements = ['pytest', 'pyyaml']
 
 setup(
     author="Young-Ho Kim",

@@ -402,7 +402,7 @@ class Time(Artifact):
     def from_str(cls: Type["Time"], text: str) -> "Time":
         match = _TIME_REGEX.match(text)
         if not match:
-            raise ValueError("Invalid format")
+            raise ValueError("Invalid format for time - {}".format(text))
         else:
 
             def parse_opt_int(x: str) -> Optional[int]:
