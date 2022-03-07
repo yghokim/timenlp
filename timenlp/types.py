@@ -319,6 +319,10 @@ class Time(Artifact):
         return self._hasOnly("month")
 
     @property
+    def isYearAndMonth(self) -> bool:
+        return self._hasOnly("year", "month")
+
+    @property
     def isPOD(self) -> bool:
         """isPartOfDay <=> morning, etc.; fragile, tests only that there is a
         POD and neither a full date nor a full time
@@ -514,7 +518,6 @@ class DurationUnit(enum.Enum):
     MINUTES = "minutes"
     HOURS = "hours"
     DAYS = "days"
-    NIGHTS = "nights"
     WEEKS = "weeks"
     MONTHS = "months"
 

@@ -4,7 +4,6 @@ from os import path, getcwd
 from typing import List
 from datetime import datetime
 import timenlp
-from timenlp.corpus import parse_nb_string
 
 
 class CaseSet():
@@ -26,5 +25,5 @@ assert corpus is not None
 def test_corpus(case: CaseSet) -> None:
     for phrase in case.phrases:
         result = timenlp.timenlp(phrase, ts=case.ref, latent_time=True, debug=False)
-        assert result is not None
-        assert result.resolution.nb_str() == case.parsed, f"{phrase} -> {result.resolution.nb_str()}. Expected {case.parsed}"
+        assert result is not None, f"Failed to parse \"{phrase}\""
+        assert result.resolution.nb_str() == case.parsed, f"Ref ({case.ref}) {phrase} -> {result.resolution.nb_str()}. Expected {case.parsed}"
