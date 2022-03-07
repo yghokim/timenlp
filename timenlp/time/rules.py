@@ -347,6 +347,9 @@ def ruleThisYearOrMonth(ts: datetime, m: RegexMatch) -> Optional[Time]:
 # LatentX: handle time entities that are not grounded to a date yet
 ###############################################################################################
 # and assume the previous date+time in the past, considering the personal informatics context.
+
+YEAR_LATENT_TOLERANCE_FUTURE = relativedelta(months = 1) #Tolerate one month future
+
 @rule(predicate("isDOM"))
 def ruleLatentDOM(ts: datetime, dom: Time) -> Time:
     dm = ts + relativedelta(day=dom.day)
@@ -366,8 +369,13 @@ def ruleLatentDOW(ts: datetime, dow: Time) -> Time:
 @rule(predicate("isDOY"))
 def ruleLatentDOY(ts: datetime, doy: Time) -> Time:
     dm = ts + relativedelta(month=doy.month, day=doy.day)
-    if dm > ts:
+
+    print(((dm + relativedelta(years=1)) - ts).days, YEAR_LATENT_TOLERANCE_FUTURE.days)
+
+    if dm > ts + YEAR_LATENT_TOLERANCE_FUTURE:
         dm -= relativedelta(years=1)
+    elif dm + relativedelta(years=1) < ts + YEAR_LATENT_TOLERANCE_FUTURE:
+        dm += relativedelta(years=1)
     return Time(year=dm.year, month=dm.month, day=dm.day)
 
 

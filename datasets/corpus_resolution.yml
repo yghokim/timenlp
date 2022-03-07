@@ -257,7 +257,6 @@
   phrases:
   - april 7
   - april 7th
-  - 7. April
   parsed: Time[]{2022-04-07 X:X (X/X)}
 
 - ref: 2022-03-07T00:00

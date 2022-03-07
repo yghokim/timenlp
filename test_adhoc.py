@@ -12,8 +12,10 @@ logger.setLevel(logging.DEBUG)
 from timenlp import timenlp
 
 def test():
-  ref = datetime(2022, 3, 7, 0, 0)
-  parsed = timenlp("8:00", ts=ref, latent_time=True)
+  ref = datetime(2017, 12, 18, 12, 34)
+  phrase = "January 3rd 2:30 pm"
+  parsed = timenlp(phrase, ts=ref, latent_time=True)
+  print("ref:", ref, "phrase:", phrase)
   print(parsed)
   print(parsed.resolution)
   
