@@ -385,10 +385,19 @@ class Time(Artifact):
     def isMeridiemLatent(self) -> bool:
         return self.meridiemLatent if self.meridiemLatent is not None else False
 
+    
+    @property
+    def was_year_latent(self) -> bool:
+        return "was_latent_year" in self.tag and self.tag["was_latent_year"] == True
+
+
     def to_datetime_unsafe(self) -> datetime:
         """convert to a datetime object"""
-        return datetime(
-            year = self.year, month = self.month, day = self.day, hour = self.hour, minute = self.minute
+        if self.isDate:
+            return datetime(self.year, self.month, self.day)
+        else:
+            return datetime(
+                year = self.year, month = self.month, day = self.day, hour = self.hour, minute = self.minute
             )
 
     def __str__(self) -> str:
@@ -511,7 +520,6 @@ class Interval(Artifact):
             return self.t_to.end
         else:
             return None
-
 
 @enum.unique
 class DurationUnit(enum.Enum):

@@ -2130,5 +2130,20 @@
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Time[]{2022-01-17 14:30 (X/X)}",
     "language": "en"
+  },
+
+  {
+    "text": "October 4 to 8",
+    "ref_time": "2021-12-18T12:34:00",
+    "gold_parse": "Interval[]{X-10-04 X:X (X/X) - X-10-08 X:X (X/X)}",
+    "language": "en"
+  },
+
+
+  {
+    "text": "from September 12 to 27",
+    "ref_time": "2021-12-18T12:34:00",
+    "gold_parse": "Interval[]{X-09-12 X:X (X/X) - X-09-27 X:X (X/X)}",
+    "language": "en"
   }
 ]

@@ -12,8 +12,8 @@ logger.setLevel(logging.DEBUG)
 from timenlp import timenlp
 
 def test():
-  ref = datetime(2017, 12, 18, 12, 34)
-  phrase = "January 3rd 2:30 pm"
+  ref = datetime(2018, 12, 7, 12, 34)
+  phrase = "from January fifth to sixteenth"
   parsed = timenlp(phrase, ts=ref, latent_time=True)
   print("ref:", ref, "phrase:", phrase)
   print(parsed)
