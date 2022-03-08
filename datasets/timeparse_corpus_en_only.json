@@ -2141,6 +2141,30 @@
 
 
   {
+    "text": "from March fifth to twelfth",
+    "ref_time": "2021-12-18T12:34:00",
+    "gold_parse": "Interval[]{X-03-05 X:X (X/X) - X-03-12 X:X (X/X)}",
+    "language": "en"
+  },
+
+
+  {
+    "text": "March fifth",
+    "ref_time": "2021-12-18T12:34:00",
+    "gold_parse": "Time[]{X-03-05 X:X (X/X)}",
+    "language": "en"
+  },
+
+
+  {
+    "text": "April first",
+    "ref_time": "2021-12-18T12:34:00",
+    "gold_parse": "Time[]{X-04-01 X:X (X/X)}",
+    "language": "en"
+  },
+
+
+  {
     "text": "from September 12 to 27",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Interval[]{X-09-12 X:X (X/X) - X-09-27 X:X (X/X)}",

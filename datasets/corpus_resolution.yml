@@ -221,9 +221,7 @@
   - from August 5 to 16
   - from August 5th to 16th
   - from August fifth to sixteenth
-  - August fifth 5 to 16 
-  - 5 to 16 August
-  - from 5 to 16 August
+  - August fifth to 16
   parsed: Interval[]{2021-08-05 X:X (X/X) - 2021-08-16 X:X (X/X)}
 
 - ref: 2022-12-07T12:43
@@ -232,9 +230,7 @@
   - from January 5 to 16
   - from January 5th to 16th
   - from January fifth to sixteenth
-  - January fifth 5 to 16 
-  - 5 to 16 January
-  - from 5 to 16 January
+  - January fifth to 16
   parsed: Interval[]{2023-01-05 X:X (X/X) - 2023-01-16 X:X (X/X)}
 
 - ref: 2022-03-07T12:43

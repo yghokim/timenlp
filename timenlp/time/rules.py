@@ -5,6 +5,7 @@ from typing import List, Optional, Any, Tuple, cast
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import rrule, MONTHLY
+from timenlp.helpers import get_DOM_from_match, get_number_from_match, make_ordered_DOM_rule, make_rule_named_number
 
 from timenlp.time.postprocess_latent import _latent_tod
 from ..rule import rule, predicate, dimension, _regex_to_join
@@ -184,6 +185,10 @@ def ruleMonthOrdinal(ts: datetime, m: RegexMatch) -> Time:
 def ruleDOM2(ts: datetime, m: RegexMatch) -> Time:
     return Time(day=int(m.match.group("day")))
 
+@rule(r"{}".format(make_ordered_DOM_rule()))
+def ruleDOMOrdered(ts: datetime, m: RegexMatch) -> Time:
+    day = get_DOM_from_match(m)
+    return Time(day=day)
 
 @rule(r"(?<!\d|\.)(?P<year>(?&_year))(?!\d)")
 def ruleYear(ts: datetime, m: RegexMatch) -> Optional[Time]:
@@ -269,6 +274,11 @@ def ruleDOMMonth2(ts: datetime, d: RegexMatch, m: Time) -> Time:
 @rule(predicate("isMonth"), _rule_dom)
 def ruleMonthDOM(ts: datetime, m: Time, d: RegexMatch) -> Time:
     return Time(month=m.month, day=int(d.match.group("dom")))
+
+
+@rule(predicate("isMonth"), predicate("isDOM"))
+def ruleMonthDOMLiteral(ts: datetime, m: Time, d: Time) -> Time:
+    return Time(month=m.month, day=d.day)
 
 
 @rule(r"at|on|this", predicate("isDOW"))
@@ -640,63 +650,6 @@ def ruleIntervalWithDateCue(ts: datetime, i: Interval, d: Time) -> Time:
 
 #Durations########################################################################################################
 
-_named_number = (
-    (1, r"an?|one"),
-    (2, r"two"),
-    (3, r"three"),
-    (4, r"four"),
-    (5, r"five"),
-    (6, r"six"),
-    (7, r"seven"),
-    (8, r"eight"),
-    (9, r"nine"),
-    (10, r"ten"),
-    (11, r"eleven"),
-    (12, r"twelve"),
-    (13, r"thirteen"),
-    (14, r"fourteen"),
-    (15, r"fifteen"),
-    (16, r"sixteen"),
-    (17, r"seventeen"),
-    (18, r"eighteen"),
-    (19, r"nineteen"),
-    (20, r"twenty")
-)
-
-_tens = ["ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
-_ones = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
-
-def _get_human_readable_number_regex_larger_than_20(n: int) -> Optional[str]:
-    hundreds = n // 100
-    tens = (n - hundreds * 100) // 10
-    ones = (n - hundreds * 100 - tens * 10) % 10
-
-    res = ""
-
-    if hundreds >= 10:
-        return None
-    else:
-        if hundreds > 0:
-            res += _named_number[hundreds-1][1] + r"\s+hundreds?\s+(?:and\s+)?"
-        if tens > 0:
-            if ones == 0:
-                res += _tens[tens-1]
-            else:
-                res += "{t}{o}|{t}-{o}|(?:{t} {o})".format(t=_tens[tens-1] ,o=_ones[ones-1]) 
-        else:
-            if ones > 0:
-                res += _ones[ones-1]
-        
-        return res
-
-_named_number += tuple((i, _get_human_readable_number_regex_larger_than_20(i)) for i in range(21, 60))
-
-def _make_rule_named_number(l:List[Tuple[int, str]], group_name_prefix="n_")->str:
-    rule = "|".join(r"(?P<{}{}>{}\b)".format(group_name_prefix, n, expr) for n, expr in l)
-    return rule
-
-_rule_named_number = r"({})\s+".format(_make_rule_named_number(_named_number))
-
 _durations = [
     (DurationUnit.DAYS, r"days?"),
     (DurationUnit.MINUTES, r"m(?:inutes?)?"),
@@ -725,15 +678,11 @@ def ruleDigitDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
 
     return None
 
-@rule(_rule_named_number + _rule_durations)
+
+@rule(r"({})\s+".format(make_rule_named_number()) + _rule_durations)
 def ruleNamedNumberDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
     # one day, thirty days etc.
-    num = None
-    for n, _ in _named_number:
-        match = m.match.group("n_{}".format(n))
-        if match:
-            num = n
-            continue
+    num = get_number_from_match(m)
 
     if num:
         for d, _, in _durations:
@@ -798,7 +747,7 @@ def ruleDurationAndHalf(ts: datetime, dur1: Duration, _: RegexMatch) -> Optional
 
 
 
-@rule(r"\b(?:(?P<num>\d+)|{})(?:\s+and)?\b".format(_make_rule_named_number(_named_number[0:23], "digit_")), predicate("isFractionalDuration"))
+@rule(r"\b(?:(?P<num>\d+)|{})(?:\s+and)?\b".format(make_rule_named_number(1, 23, "digit_")), predicate("isFractionalDuration"))
 def ruleDigitAndFractionDuration(ts: datetime, m: RegexMatch, dur: Duration) -> Optional[Duration]:
 
     digit = None
@@ -858,7 +807,7 @@ def ruleRatialDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
     return None
 
 
-_rule_duration_fractions = r"(?P<frac_digit>\d+)|"+_make_rule_named_number(_named_number[0:3], "frac_c_")
+_rule_duration_fractions = r"(?P<frac_digit>\d+)|"+ make_rule_named_number(1, 4, "frac_c_")
 
 _rule_duration_fractions = r"({})\s+".format(_rule_duration_fractions)
 
@@ -868,7 +817,6 @@ _rule_fractions = "|".join(r"(?P<frac1_{}>{})".format(n, r) for n, r in _fractio
 _rule_duration_fractions += r"({})\s+".format(_rule_fractions) + r"(?:of\s+)?(?:an?\s+)?" + r"(?:{})\b".format(r"|".join(
     r"(?P<d_{}>{}\b)".format(dur.value, expr) for dur, expr in _durations)
 )
-
 
 @rule(_rule_duration_fractions)
 def ruleDurationFraction(ts: datetime, m: RegexMatch) -> Optional[Duration]:
