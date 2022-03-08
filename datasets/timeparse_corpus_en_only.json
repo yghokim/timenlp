@@ -2184,5 +2184,12 @@
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Interval[]{X-09-12 X:X (X/X) - X-09-27 X:X (X/X)}",
     "language": "en"
+  },
+
+  {
+    "text": "August 5 at 8",
+    "ref_time": "2021-12-18T12:34:00",
+    "gold_parse": "Time[]{X-08-05 08:00 (X/X)}",
+    "language": "en"
   }
 ]

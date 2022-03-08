@@ -384,12 +384,7 @@ class Time(Artifact):
     @property
     def isMeridiemLatent(self) -> bool:
         return self.meridiemLatent if self.meridiemLatent is not None else False
-    
-    @property
-    def was_year_latent(self) -> bool:
-        return "was_latent_year" in self.tag and self.tag["was_latent_year"] == True
-
-
+   
     def to_datetime_unsafe(self) -> datetime:
         """convert to a datetime object"""
         if self.isDate:

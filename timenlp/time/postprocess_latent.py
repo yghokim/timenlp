@@ -25,13 +25,12 @@ def apply_postprocessing_rules(ts: datetime, art: Artifact) -> Artifact:
     if isinstance(art, Time):
         if art.isTOD:
             return _latent_tod(ts, art)
+            
     if isinstance(art, Interval):
         if art.isTimeInterval:
             return _latent_time_interval(ts, art)
 
     return art
-
-
 
 def _latent_tod(ts: datetime, tod: Time) -> Time:
     dm = ts + relativedelta(hour=tod.hour, minute=tod.minute or 0)

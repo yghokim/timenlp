@@ -281,7 +281,7 @@ def ruleMonthDOMLiteral(ts: datetime, m: Time, d: Time) -> Time:
     return Time(month=m.month, day=d.day)
 
 
-@rule(r"at|on|this", predicate("isDOW"))
+@rule(r"this", predicate("isDOW"))
 def ruleAtDOW(ts: datetime, _: RegexMatch, dow: Time) -> Time:
     dm = ts + relativedelta(weekday=dow.DOW)
     if dm.date() == ts.date():
@@ -365,6 +365,7 @@ def ruleThisYearOrMonth(ts: datetime, m: RegexMatch) -> Optional[Time]:
 
 YEAR_LATENT_TOLERANCE_FUTURE = relativedelta(months = 1) #Tolerate one month future
 
+
 @rule(predicate("isDOM"))
 def ruleLatentDOM(ts: datetime, dom: Time) -> Time:
     dm = ts + relativedelta(day=dom.day)
@@ -376,10 +377,20 @@ def ruleLatentDOM(ts: datetime, dom: Time) -> Time:
 @rule(predicate("isDOW"))
 def ruleLatentDOW(ts: datetime, dow: Time) -> Time:
     dm = ts + relativedelta(weekday=dow.DOW)
+
     if dm >= ts:
         dm -= relativedelta(weeks=1)
     return Time(year=dm.year, month=dm.month, day=dm.day)
 
+@rule(predicate("isMonth"))
+def ruleLatentMonth(ts: datetime, month: Time) -> Time:
+    dm = ts + relativedelta(month=month.month)
+    if dm >= ts + YEAR_LATENT_TOLERANCE_FUTURE:
+        dm -= relativedelta(years=1)
+    elif dm + relativedelta(years=1) < ts + YEAR_LATENT_TOLERANCE_FUTURE:
+        dm += relativedelta(years=1)
+
+    return Time(year=dm.year, month=dm.month)
 
 def _ruleLatentDOY(ts: datetime, doy: Time) -> Time:
     dm = ts + relativedelta(month=doy.month, day=doy.day)
@@ -388,7 +399,7 @@ def _ruleLatentDOY(ts: datetime, doy: Time) -> Time:
         dm -= relativedelta(years=1)
     elif dm + relativedelta(years=1) < ts + YEAR_LATENT_TOLERANCE_FUTURE:
         dm += relativedelta(years=1)
-    return Time(year=dm.year, month=dm.month, day=dm.day, tag={"was_latent_year": True})
+    return Time(year=dm.year, month=dm.month, day=dm.day)
 
 @rule(predicate("isDOY"))
 def ruleLatentDOY(ts: datetime, doy: Time) -> Time:

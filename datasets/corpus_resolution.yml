@@ -66,22 +66,18 @@
 - ref: 2022-03-07T12:43
   phrases:
   - January
-  - Jan.
   parsed: Time[]{2022-01-X X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - April
-  - apr.
   parsed: Time[]{2021-04-X X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - July
-  - Jul.
   parsed: Time[]{2021-07-X X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - December
-  - Dec.
   parsed: Time[]{2021-12-X X:X (X/X)}
 - ref: 2022-03-08T12:43
   phrases:
@@ -326,25 +322,17 @@
   - at Sep 17th in the evening before 10
   parsed: Interval[]{2021-09-17 X:X (X/evening) - 2021-09-17 22:00 (X/X)}
 
-- ref: 2022-07-26T00:00
-  phrases:
-  - in the evening after 10
-  - in the evening after 10 p.m.
-  - in the evening after 10 PM
-  - in the evening after ten
-  - in the evening after ten p.m.
-  parsed: Interval[]{2022-07-25 22:00 (X/X) - 2022-07-26 00:00 (X/X)}
 
 - ref: 2022-07-26T00:00
   phrases:
   - in the evening between 8 and 9
-  - Jul 26th between 20 and 21
+  - July 26th between 20 and 21
   parsed: Interval[]{2022-07-25 20:00 (X/X) - 2022-07-25 21:00 (X/X)}
 
 - ref: 2022-07-26T00:00
   phrases:
   - in the morning between 8 and 9
-  - Jul 26th between 8 and 9
+  - July 26th between 8 and 9
   parsed: Interval[]{2022-07-25 08:00 (X/X) - 2022-07-25 09:00 (X/X)}
 
 - ref: 2017-12-18T12:34
@@ -357,7 +345,7 @@
 
 - ref: 2017-12-18T12:34
   phrases:
-  - 13th Jan
+  - 13th January
   - January 13th
   parsed: Time[]{2018-01-13 X:X (X/X)}
 
@@ -443,7 +431,7 @@
 
 - ref: 2020-02-25T12:34
   phrases:
-  - 3 Feb 2020
+  - 3 February 2020
   parsed: Time[]{2020-02-03 X:X (X/X)}
 
 - ref: 2020-02-25T12:34
