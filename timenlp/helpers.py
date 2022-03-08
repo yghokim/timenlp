@@ -58,13 +58,11 @@ def make_rule_named_number(start_number: int=1, end_number: int=59, group_name_p
     return rule
 
 def get_number_from_match(regex_match: RegexMatch, group_name_prefix="n_") -> Optional[int]:
-    num = None
     for n, _ in _named_numbers:
         match = regex_match.match.group(f"{group_name_prefix}{n}")
         if match:
-            num = n
-            continue
-    return num
+            return n
+    return None
 
 
 

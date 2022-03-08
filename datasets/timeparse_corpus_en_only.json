@@ -2112,6 +2112,21 @@
   },
 
   {
+    "text": "1 and 1/2 hours",
+    "ref_time": "2022-03-03T14:05:00",
+    "gold_parse": "Duration[]{90 minutes}",
+    "language": "en"
+  },
+
+
+  {
+    "text": "three and 1/4 hours",
+    "ref_time": "2022-03-03T14:05:00",
+    "gold_parse": "Duration[]{195 minutes}",
+    "language": "en"
+  },
+
+  {
     "text": "since 1 pm for 3 hours",
     "ref_time": "2022-03-03T18:30:00",
     "gold_parse": "Interval[]{X-X-X 13:00 (X/X) - X-X-X 16:00 (X/X)}",

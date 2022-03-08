@@ -384,7 +384,6 @@ class Time(Artifact):
     @property
     def isMeridiemLatent(self) -> bool:
         return self.meridiemLatent if self.meridiemLatent is not None else False
-
     
     @property
     def was_year_latent(self) -> bool:

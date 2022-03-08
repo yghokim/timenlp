@@ -13,7 +13,7 @@ from timenlp import timenlp
 
 def test():
   ref = datetime(2018, 12, 7, 12, 34)
-  phrase = "from January fifth to sixteenth"
+  phrase = "3 and 1/4 of an hour"
   parsed = timenlp(phrase, ts=ref, latent_time=True)
   print("ref:", ref, "phrase:", phrase)
   print(parsed)
