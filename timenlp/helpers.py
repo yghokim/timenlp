@@ -112,7 +112,3 @@ def get_DOM_from_match(regex_match: RegexMatch, group_name_prefix="dom_") -> Opt
             num = n
             continue
     return num
-
-def is_same_week(d1: datetime, d2: datetime) -> bool:
-    print(d1, d1.isocalendar(), d2, d2.isocalendar())
-    return d1.isocalendar()[1] == d2.isocalendar()[1]

@@ -446,7 +446,7 @@ def ruleDDMM(ts: datetime, m: RegexMatch) -> Time:
 """
 
 @rule(
-    r"(?<!\d|\.)((?P<month>(?&_month))|(?P<named_month>({})))[/\-]"
+    r"(?<!\d|\.)((?P<month>(?&_month))|(?P<named_month>({})))[\-]"
     r"(?P<day>(?&_day))"
     r"(?!\d|am|\s*pm)".format(_rule_months)
 )
@@ -461,8 +461,8 @@ def ruleMMDD(ts: datetime, m: RegexMatch) -> Time:
 
 
 @rule(
-    r"(?<!\d|\.)(?P<day>(?&_day))[-/\.]"
-    r"((?P<month>(?&_month))|(?P<named_month>({})))[-/\.]"
+    r"(?<!\d|\.)(?P<day>(?&_day))[-\.]"
+    r"((?P<month>(?&_month))|(?P<named_month>({})))[-\.]"
     r"(?P<year>(?&_year))(?!\d)".format(_rule_months)
 )
 def ruleDDMMYYYY(ts: datetime, m: RegexMatch) -> Time:
@@ -673,7 +673,7 @@ def ruleIntervalWithDateCue(ts: datetime, i: Interval, d: Time) -> Time:
 
 _rule_digit_and = r"(?P<additional_digit>(?:(?P<n_int>\d+)|{})\s+and)".format(make_rule_named_number(1,10))
 
-def _get_integer_from_match_digit_and(m: RegexMatch, fallback = 0)->Optional[int]:
+def _get_integer_from_match_digit_and(m: RegexMatch, fallback = 0)-> int:
     integer = 0
     if m.match.group("additional_digit"):
         if m.match.group("n_int"):
@@ -762,8 +762,11 @@ _rule_duration_fractions += r"({})\s+".format(_rule_fractions) + r"(?:of\s+)?(?:
     r"(?P<d_{}>{}\b)".format(dur.value, expr) for dur, expr in _durations)
 )
 
-@rule(r"(?P<left>\d+)(?P<separator>\.|\/)(?P<right>\d+)\s+" + r"(?:of\s+)?(?:an?\s+)?" + _rule_durations)
+@rule(r"({}\s+)?".format(_rule_digit_and) + r"(?P<left>\d+)(?P<separator>\.|\/)(?P<right>\d+)\s+" + r"(?:of\s+)?(?:an?\s+)?" + _rule_durations)
 def ruleRatialDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
+
+    integer = _get_integer_from_match_digit_and(m)
+
     separator = m.match.group("separator")
 
     if separator == ".":
@@ -777,11 +780,11 @@ def ruleRatialDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
                 if unit:
                     if decimal:
                         if n.value == "hours":
-                            return Duration(round(int(digit) * 60 + float("0." +decimal) * 60), DurationUnit.MINUTES, tag={"fraction": digit +"." + decimal})
+                            return Duration(round((int(digit) + integer) * 60 + float("0." +decimal) * 60), DurationUnit.MINUTES, tag={"fraction": digit +"." + decimal})
                         elif n.value == "days":
-                            return Duration(round(int(digit) * 24 + float("0." +decimal) * 24), DurationUnit.HOURS, tag={"fraction": digit +"." + decimal})
+                            return Duration(round((int(digit) + integer) * 24 + float("0." +decimal) * 24), DurationUnit.HOURS, tag={"fraction": digit +"." + decimal})
                     else:
-                        return Duration(int(digit), n)
+                        return Duration(int(digit) + integer, n)
     elif separator == "/":
          # 1/2 day, 1/4 hours etc.
 
@@ -794,9 +797,9 @@ def ruleRatialDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
                 if unit:
                     ratio = int(numerator) / int(denominator)
                     if n.value == "hours":
-                        return Duration(round(ratio * 60), DurationUnit.MINUTES, {"fraction": ratio})
+                        return Duration(round((integer + ratio) * 60), DurationUnit.MINUTES, {"fraction": ratio})
                     elif n.value == "days":
-                        return Duration(round(ratio * 24), DurationUnit.HOURS, {"fraction": ratio})
+                        return Duration(round((integer + ratio) * 24), DurationUnit.HOURS, {"fraction": ratio})
                
     return None
 
