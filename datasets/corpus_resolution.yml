@@ -291,7 +291,13 @@
   - Sunday 11:30 PM to 3:35 AM
   - Last night 11:30 through 3:35
   parsed: Interval[]{2022-03-06 23:30 (X/X) - 2022-03-07 03:35 (X/X)}
-  
+
+- ref: 2022-03-07T16:00
+  phrases:
+  - Last night 11:30 through 3:35
+  parsed: Interval[]{2022-03-06 23:30 (X/X) - 2022-03-07 03:35 (X/X)}
+ 
+
 - ref: 2022-07-26T00:00
   phrases:
   - Friday, the 24th
@@ -385,7 +391,6 @@
 
 - ref: 2022-03-07T12:43
   phrases:
-  - december 6 early
   - december 6th morning
   parsed: Time[]{2021-12-06 X:X (X/morning)}
 
@@ -411,7 +416,7 @@
 
 - ref: 2022-03-07T12:43
   phrases:
-  - december 6 late
+  - december 6 evening
   parsed: Time[]{2021-12-06 X:X (X/evening)}
 
 - ref: 2022-03-07T12:43
@@ -609,3 +614,12 @@
   - 2 to 4
   - 2:00 to 4:00
   parsed: Interval[]{2022-03-02 14:00 (X/X) - 2022-03-02 16:00 (X/X)}
+
+
+- ref: 2022-03-03T00:25
+  phrases:
+  - for the last 8 and a half hours.
+  - for the past 8.5 hours.
+  - for the recent 8 hours and a half.
+  
+  parsed: Interval[]{2022-03-02 15:55 (X/X) - 2022-03-03 00:25 (X/X)}

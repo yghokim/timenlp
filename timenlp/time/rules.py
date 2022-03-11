@@ -5,7 +5,7 @@ from typing import List, Optional, Any, Tuple, cast
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import rrule, MONTHLY
-from timenlp.helpers import get_DOM_from_match, get_number_from_match, make_ordered_DOM_rule, make_rule_named_number
+from timenlp.helpers import get_DOM_from_match, get_number_from_match, make_ordered_DOM_rule, make_rule_named_number, pod_to_meridiem
 
 from timenlp.time.postprocess_latent import _latent_tod
 from ..rule import rule, predicate, dimension, _regex_to_join
@@ -124,8 +124,8 @@ def _pod_from_match(pod: str, m: RegexMatch) -> str:
 
 @rule(
     r"(?P<mod_very>(sehr|very)\s+)?"
-    "((?P<mod_early>früh(e(r|n|m))?|early)"
-    "|(?P<mod_late>(spät(e(r|n|m))?|late)))",
+    "((?P<mod_early>early)"
+    "|(?P<mod_late>late))",
     predicate("isPOD"),
 )
 def ruleEarlyLatePOD(ts: datetime, m: RegexMatch, p: Time) -> Time:
@@ -150,11 +150,11 @@ def ruleEarlyLatePOD(ts: datetime, m: RegexMatch, p: Time) -> Time:
 _pods = [
     ("earlymorning", r"very early"),
     ("lateevening", r"very late"),
-    ("morning", r"morning|early"),
+    ("morning", r"morning"),
     ("forenoon", r"forenoon"),
     ("afternoon", r"afternoon"),
     ("noon", r"noon"),
-    ("evening", r"evening|tonight|late"),
+    ("evening", r"evening|tonight"),
     ("night", r"night"),
 ]
 
@@ -963,6 +963,8 @@ def ruleDateTimeDateTime(
 @rule(predicate("isTOD"), _regex_to_join, predicate("isTOD"))
 def ruleTODTOD(ts: datetime, t1: Time, _: RegexMatch, t2: Time) -> Interval:
 
+    print(t1, t1.isMeridiemLatent, t2, t2.isMeridiemLatent)
+
     if t1.isMeridiemLatent == True or t2.isMeridiemLatent == True:
         #Just put ts's date to avoid argument exception.
         t_from = datetime(year = ts.year, month = ts.month, day = ts.day, hour=t1.hour, minute=t1.minute)
@@ -982,6 +984,14 @@ def ruleTODTOD(ts: datetime, t1: Time, _: RegexMatch, t2: Time) -> Interval:
 @rule(predicate("isPOD"), _regex_to_join, predicate("isPOD"))
 def rulePODPOD(ts: datetime, t1: Time, _: RegexMatch, t2: Time) -> Interval:
     return Interval(t_from=t1, t_to=t2)
+
+"""
+@rule(predicate("isDateWithPOD"), predicate("isTimeInterval"))
+def ruleDatePODWithTimeInterval(ts: datetime, date_pod: Time, interval: Interval) -> Interval:
+    print("TODO")
+    return None
+"""
+
 
 @rule(predicate("isDate"), dimension(Interval))
 def ruleDateInterval(ts: datetime, d: Time, i: Interval) -> Optional[Interval]:
@@ -1050,7 +1060,7 @@ def rulePODInterval(ts: datetime, p: Time, i: Interval) -> Optional[Interval]:
             year=i.t_to.year,
             month=i.t_to.month,
             day=i.t_to.day,
-            hour=_adjust_h(i.t_to),
+            hour= i.t_to.hour if i.t_to.isTOD and i.t_to.isMeridiemLatent else _adjust_h(i.t_to),
             minute=i.t_to.minute,
             DOW=i.t_to.DOW,
         )
@@ -1063,18 +1073,17 @@ def rulePODInterval(ts: datetime, p: Time, i: Interval) -> Optional[Interval]:
             minute=i.t_from.minute,
             DOW=i.t_from.DOW,
         )
+
+    #adjust to with POD
+    if i.t_to.isTOD and i.t_to.isMeridiemLatent:
+        if i.t_to.hour >= 12:
+            dt_from = datetime(year = ts.year,)
+
+
     return Interval(t_from=t_from, t_to=t_to)
 
 
 #appended interval rules######################
-
-#only elapsed duration
-@rule(r"\bfor\b", dimension(Duration))
-def ruleElapsedDuration(ts: datetime, _: RegexMatch, dur: Duration) -> Interval:
-    delta = _duration_to_relativedelta(dur)
-    start_ts = ts - delta
-    start = Time(year=start_ts.year, month=start_ts.month, day=start_ts.day, hour=start_ts.hour, minute=start_ts.minute)
-    return Interval(t_from=start, t_to=Time(year=ts.year, month=ts.month, day=ts.day, hour=ts.hour, minute=ts.minute))
 
 #time + duration
 @rule(dimension(Time), r"\bfor\b", dimension(Duration))
@@ -1128,6 +1137,19 @@ def ruleTimeDuration(
         return Interval(t_from=t, t_to=end)
     return None
 """
+
+#only elapsed duration
+@rule(r"\bfor\b", dimension(Duration))
+def ruleElapsedDuration(ts: datetime, _: RegexMatch, dur: Duration) -> Interval:
+    delta = _duration_to_relativedelta(dur)
+    start_ts = ts - delta
+    start = Time(year=start_ts.year, month=start_ts.month, day=start_ts.day, hour=start_ts.hour, minute=start_ts.minute)
+    return Interval(t_from=start, t_to=Time(year=ts.year, month=ts.month, day=ts.day, hour=ts.hour, minute=ts.minute))
+
+@rule(r"for( the)? (?:last|past|recent)\b", dimension(Duration))
+def ruleElapsedDurationForTheLast(ts: datetime, _: RegexMatch, dur: Duration) -> Interval:
+    return ruleElapsedDuration(ts, _, dur)
+
 
 def _duration_to_relativedelta(dur: Duration) -> relativedelta:
     return {

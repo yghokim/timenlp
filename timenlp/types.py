@@ -352,6 +352,10 @@ class Time(Artifact):
         )
 
     @property
+    def isDateWithPOD(self) -> bool:
+        return self._hasOnly("year", "month", "day", "POD")
+
+    @property
     def isYear(self) -> bool:
         """just a year"""
         return self._hasOnly("year")

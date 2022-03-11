@@ -56,6 +56,9 @@ def _latent_tod(ts: datetime, tod: Time) -> Time:
 FUTURE_TOLERANCE_DELTA = relativedelta(minutes = 10)
 
 def _latent_time_interval(ts: datetime, ti: Interval) -> Interval:
+
+    print("latent time interval convert", ti.t_from, ti.t_from.isMeridiemLatent, ti.t_to, ti.t_to.isMeridiemLatent)
+    
     assert ti.t_from and ti.t_to  # guaranteed by the caller
     dm_from = ts + relativedelta(hour=ti.t_from.hour, minute=ti.t_from.minute or 0) if ti.t_from.isTOD == False else _latent_tod(ts, ti.t_from).to_datetime_unsafe()
     dm_to = ts + relativedelta(hour=ti.t_to.hour, minute=ti.t_to.minute or 0) if ti.t_to.isTOD == False else _latent_tod(ts, ti.t_to).to_datetime_unsafe()

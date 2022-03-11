@@ -112,3 +112,18 @@ def get_DOM_from_match(regex_match: RegexMatch, group_name_prefix="dom_") -> Opt
             num = n
             continue
     return num
+
+
+_pod_to_meridiem_dict = {
+        "earlymorning": "am",
+        "lateevening": "pm",
+        "morning": "am",
+        "forenoon": "am",
+        "afternoon": "pm",
+        "noon": "noon",
+        "evening": "pm",
+        "night": "pm",
+    }
+    
+def pod_to_meridiem(pod: str) -> str:
+    return _pod_to_meridiem_dict[pod]
