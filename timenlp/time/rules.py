@@ -298,7 +298,7 @@ def ruleNextDOW(ts: datetime, _: RegexMatch, dow: Time) -> Time:
     return Time(year=dm.year, month=dm.month, day=dm.day)
 
 
-@rule(predicate("isDOW"), r"(next|following) week")
+@rule(predicate("isDOW"), r"(?:(?:on|at|of)\s+)?(the )?(next|following) week")
 def ruleDOWNextWeek(ts: datetime, dow: Time, _: RegexMatch) -> Time:
     dm = ts + relativedelta(weekday=dow.DOW, weeks=1)
     return Time(year=dm.year, month=dm.month, day=dm.day)
@@ -322,7 +322,14 @@ def ruleDOWPOD(ts: datetime, dow: Time, pod: Time) -> Time:
 def ruleDOWDOM(ts: datetime, dow: Time, dom: Time) -> Time:
     # Monday 5th
     # Find next date at this day of week and day of month
-    dm = rrule(MONTHLY, dtstart=ts, byweekday=dow.DOW, bymonthday=dom.day, count=1)[0]
+    dtstart = ts
+    delta_unit = relativedelta(months = -1)
+    dm: datetime = None
+    while dm is None:
+        dtstart += delta_unit
+        dm_candidate = rrule(MONTHLY, dtstart=dtstart, byweekday=dow.DOW, bymonthday=dom.day, count=1)
+        if dm_candidate[0] < ts + YEAR_LATENT_TOLERANCE_FUTURE:
+            dm = dm_candidate[0]
     return Time(year=dm.year, month=dm.month, day=dm.day)
 
 
@@ -373,12 +380,12 @@ def ruleLatentDOM(ts: datetime, dom: Time) -> Time:
         dm -= relativedelta(months=1)
     return Time(year=dm.year, month=dm.month, day=dm.day)
 
+WEEK_LATENT_TOLERANCE_FUTURE = relativedelta(days = 1)
 
 @rule(predicate("isDOW"))
 def ruleLatentDOW(ts: datetime, dow: Time) -> Time:
     dm = ts + relativedelta(weekday=dow.DOW)
-
-    if dm >= ts:
+    if dm > ts + WEEK_LATENT_TOLERANCE_FUTURE:
         dm -= relativedelta(weeks=1)
     return Time(year=dm.year, month=dm.month, day=dm.day)
 

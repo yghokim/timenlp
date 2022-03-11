@@ -83,6 +83,7 @@
   phrases:
   - on Tuesday
   parsed: Time[]{2022-03-08 X:X (X/X)}
+
 - ref: 2022-03-07T12:43
   phrases:
   - this Wednesday
@@ -90,7 +91,12 @@
 
 - ref: 2022-03-07T12:43
   phrases:
-  - next Friday
+  - on Wednesday
+  - last Wednesday
+  parsed: Time[]{2022-03-02 X:X (X/X)}
+
+- ref: 2022-03-07T12:43
+  phrases:
   - this Friday
   parsed: Time[]{2022-03-11 X:X (X/X)}
 
