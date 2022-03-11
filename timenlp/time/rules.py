@@ -780,9 +780,9 @@ def ruleRatialDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
                 if unit:
                     if decimal:
                         if n.value == "hours":
-                            return Duration(round((int(digit) + integer) * 60 + float("0." +decimal) * 60), DurationUnit.MINUTES, tag={"fraction": digit +"." + decimal})
+                            return Duration(round((int(digit) + integer) * 60 + float("0." +decimal) * 60), DurationUnit.MINUTES)
                         elif n.value == "days":
-                            return Duration(round((int(digit) + integer) * 24 + float("0." +decimal) * 24), DurationUnit.HOURS, tag={"fraction": digit +"." + decimal})
+                            return Duration(round((int(digit) + integer) * 24 + float("0." +decimal) * 24), DurationUnit.HOURS)
                     else:
                         return Duration(int(digit) + integer, n)
     elif separator == "/":
@@ -797,9 +797,9 @@ def ruleRatialDuration(ts: datetime, m: RegexMatch) -> Optional[Duration]:
                 if unit:
                     ratio = int(numerator) / int(denominator)
                     if n.value == "hours":
-                        return Duration(round((integer + ratio) * 60), DurationUnit.MINUTES, {"fraction": ratio})
+                        return Duration(round((integer + ratio) * 60), DurationUnit.MINUTES)
                     elif n.value == "days":
-                        return Duration(round((integer + ratio) * 24), DurationUnit.HOURS, {"fraction": ratio})
+                        return Duration(round((integer + ratio) * 24), DurationUnit.HOURS)
                
     return None
 
@@ -837,9 +837,9 @@ def ruleDurationFromNamedFraction(ts: datetime, m: RegexMatch) -> Optional[Durat
         unit = m.match.group("d_" + n.value)
         if unit:
             if n.value == "hours":
-                return Duration(round((integer + fraction) * 60), DurationUnit.MINUTES, tag={"fraction": fraction})
+                return Duration(round((integer + fraction) * 60), DurationUnit.MINUTES)
             elif n.value == "days":
-                return Duration(round((integer + fraction) * 24), DurationUnit.HOURS, tag={"fraction": fraction})
+                return Duration(round((integer + fraction) * 24), DurationUnit.HOURS)
 
     return None
 

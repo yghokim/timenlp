@@ -544,9 +544,3 @@ class Duration(Artifact):
     def from_str(cls: Type["Duration"], text: str) -> "Duration":
         value, unit = text.split()
         return Duration(int(value), DurationUnit(unit))
-
-    @property
-    def isFractionalDuration(self) -> bool:
-        if self.tag is not None:
-            return bool("fraction" in self.tag)
-        else: return False
