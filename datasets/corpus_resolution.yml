@@ -12,17 +12,17 @@
   phrases:
   - rightnow
   - just now
-  parsed: Time[]{2022-03-07 X:X (X/X)}
+  parsed: Time[]{2022-03-07 12:43 (X/X)}
 - ref: 2022-12-31T12:43
   phrases:
   - tomorrow
-  parsed: Time[]{2019-01-01 X:X (X/X)}
+  parsed: Time[]{2023-01-01 X:X (X/X)}
 - ref: 2022-12-31T12:43
   phrases:
   - tomorrow 7:25 pm
   - tomorrow 7:25 p.m.
   - 7:25 pm tomorrow
-  parsed: Time[]{2019-01-01 19:25 (X/X)}
+  parsed: Time[]{2023-01-01 19:25 (X/X)}
 - ref: 2020-03-01T12:43
   phrases:
   - yesterday
@@ -30,15 +30,26 @@
 - ref: 2022-03-07T12:43
   phrases:
   - end of the month
+  - the last day of the month
   parsed: Time[]{2022-03-31 X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - end of the last month
+  - the last day of the last month
   parsed: Time[]{2022-02-28 X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - end of the year
+  - the last day of the year
+  - end of this year
+  
   parsed: Time[]{2022-12-31 X:X (X/X)}
+- ref: 2022-03-07T12:43
+  phrases:
+  - end of 2020
+  - the last day of 2020
+  parsed: Time[]{2020-12-31 X:X (X/X)}
+
 - ref: 2022-03-05T12:43
   phrases:
   - mondays
@@ -47,7 +58,6 @@
 - ref: 2022-03-05T12:43
   phrases:
   - tuesday
-  - tue
   parsed: Time[]{2022-03-01 X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
@@ -56,28 +66,24 @@
 - ref: 2022-03-07T12:43
   phrases:
   - January
-  - Jan.
   parsed: Time[]{2022-01-X X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - April
-  - apr.
   parsed: Time[]{2021-04-X X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - July
-  - Jul.
   parsed: Time[]{2021-07-X X:X (X/X)}
 - ref: 2022-03-07T12:43
   phrases:
   - December
-  - Dec.
   parsed: Time[]{2021-12-X X:X (X/X)}
 - ref: 2022-03-08T12:43
   phrases:
-  - on Tue
   - on Tuesday
   parsed: Time[]{2022-03-08 X:X (X/X)}
+
 - ref: 2022-03-07T12:43
   phrases:
   - this Wednesday
@@ -85,7 +91,12 @@
 
 - ref: 2022-03-07T12:43
   phrases:
-  - next Friday
+  - on Wednesday
+  - last Wednesday
+  parsed: Time[]{2022-03-02 X:X (X/X)}
+
+- ref: 2022-03-07T12:43
+  phrases:
   - this Friday
   parsed: Time[]{2022-03-11 X:X (X/X)}
 
@@ -210,9 +221,19 @@
   phrases:
   - from August 5th to August 16th
   - from August 5 to 16
-  - 5 to 16 August
-  - from 5 to 16 August
+  - from August 5th to 16th
+  - from August fifth to sixteenth
+  - August fifth to 16
   parsed: Interval[]{2021-08-05 X:X (X/X) - 2021-08-16 X:X (X/X)}
+
+- ref: 2022-12-07T12:43
+  phrases:
+  - from January 5th to January 16th
+  - from January 5 to 16
+  - from January 5th to 16th
+  - from January fifth to sixteenth
+  - January fifth to 16
+  parsed: Interval[]{2023-01-05 X:X (X/X) - 2023-01-16 X:X (X/X)}
 
 - ref: 2022-03-07T12:43
   phrases:
@@ -221,9 +242,9 @@
 
 - ref: 2022-03-07T13:43
   phrases:
-  - 8h to 13h
-  - eight to eleven PM
-  - 8 to 11 p.m.
+  - 8:00 to 1:00 PM
+  - eight to one PM
+  - 8 to 1 p.m.
   parsed: Interval[]{2022-03-07 08:00 (X/X) - 2022-03-07 13:00 (X/X)}
 
 - ref: 2022-05-08T10:32
@@ -233,8 +254,6 @@
 
 - ref: 2022-03-07T00:00
   phrases:
-  - 8h
-  - "8:00"
   - 8am
   - 8 a.m.
   parsed: Time[]{2022-03-06 08:00 (X/X)}
@@ -242,6 +261,7 @@
 - ref: 2022-03-07T00:00
   phrases:
   - 8pm
+  - "8:00"
   - 8:00 PM
   parsed: Time[]{2022-03-06 20:00 (X/X)}
 
@@ -249,7 +269,6 @@
   phrases:
   - april 7
   - april 7th
-  - 7. April
   parsed: Time[]{2022-04-07 X:X (X/X)}
 
 - ref: 2022-03-07T00:00
@@ -272,7 +291,13 @@
   - Sunday 11:30 PM to 3:35 AM
   - Last night 11:30 through 3:35
   parsed: Interval[]{2022-03-06 23:30 (X/X) - 2022-03-07 03:35 (X/X)}
-  
+
+- ref: 2022-03-07T16:00
+  phrases:
+  - Last night 11:30 through 3:35
+  parsed: Interval[]{2022-03-06 23:30 (X/X) - 2022-03-07 03:35 (X/X)}
+ 
+
 - ref: 2022-07-26T00:00
   phrases:
   - Friday, the 24th
@@ -309,40 +334,32 @@
   - at Sep 17th in the evening before 10
   parsed: Interval[]{2021-09-17 X:X (X/evening) - 2021-09-17 22:00 (X/X)}
 
-- ref: 2022-07-26T00:00
-  phrases:
-  - in the evening after 10
-  - in the evening after 10 p.m.
-  - in the evening after 10 PM
-  - in the evening after ten
-  - in the evening after ten p.m.
-  parsed: Interval[]{2022-07-25 22:00 (X/X) - 2022-07-26 00:00 (X/X)}
 
 - ref: 2022-07-26T00:00
   phrases:
   - in the evening between 8 and 9
-  - Jul 26th between 20 and 21
-  parsed: Interval[]{2022-07-25 20:00 (X/X) - 2022-07-25 21:00 (X/X)}
+  - July 26th from 8 to 9 PM
+  parsed: Interval[]{2022-07-26 20:00 (X/X) - 2022-07-26 21:00 (X/X)}
 
 - ref: 2022-07-26T00:00
   phrases:
   - in the morning between 8 and 9
-  - Jul 26th between 8 and 9
-  parsed: Interval[]{2022-07-25 08:00 (X/X) - 2022-07-25 09:00 (X/X)}
+  - July 26th between 8 and 9
+  parsed: Interval[]{2022-07-26 08:00 (X/X) - 2022-07-26 09:00 (X/X)}
 
 - ref: 2017-12-18T12:34
   phrases:
   - tomorrow 09:30 - 10:45
   - tomorrow 0930 - 1045
-  - 19th of December from 09:30 til 10:45
-  - Dec 19th between 9.30 and 10.45
+  - 19th of December from 09:30 till 10:45
+  - Dec 19th between 9:30 and 10:45
   parsed: Interval[]{2017-12-19 09:30 (X/X) - 2017-12-19 10:45 (X/X)}
 
 - ref: 2017-12-18T12:34
   phrases:
-  - 13th Jan
+  - 13th January
   - January 13th
-  parsed: Time[]{2022-01-13 X:X (X/X)}
+  parsed: Time[]{2018-01-13 X:X (X/X)}
 
 - ref: 2017-12-18T12:34
   phrases:
@@ -363,7 +380,7 @@
 - ref: 2017-12-18T12:34
   phrases:
   - January 3rd 2:30 pm
-  - January 3 2 30 PM
+  - January 3 2:30 PM
   parsed: Time[]{2018-01-03 14:30 (X/X)}
 
 - ref: 2017-12-18T12:34
@@ -374,7 +391,6 @@
 
 - ref: 2022-03-07T12:43
   phrases:
-  - december 6 early
   - december 6th morning
   parsed: Time[]{2021-12-06 X:X (X/morning)}
 
@@ -400,7 +416,7 @@
 
 - ref: 2022-03-07T12:43
   phrases:
-  - december 6 late
+  - december 6 evening
   parsed: Time[]{2021-12-06 X:X (X/evening)}
 
 - ref: 2022-03-07T12:43
@@ -416,7 +432,7 @@
 - ref: 2021-12-18T12:34
   phrases:
   - 2:30 pm on January 17, 2022
-  - 2 30 p.m. on January 17, 2022
+  - 2:30 p.m. on January 17, 2022
   parsed: Time[]{2022-01-17 14:30 (X/X)}
 
 - ref: 2022-12-18T12:34
@@ -426,14 +442,8 @@
 
 - ref: 2020-02-25T12:34
   phrases:
-  - 3 Feb 2020
+  - 3 February 2020
   parsed: Time[]{2020-02-03 X:X (X/X)}
-
-- ref: 2020-02-25T12:34
-  phrases:
-  - one night
-  - 1 night
-  parsed: Duration[]{1 nights}
 
 - ref: 2020-02-25T12:34
   phrases:
@@ -443,7 +453,7 @@
 - ref: 2022-02-25T12:34
   phrases:
   - for 30 days
-  parsed: Interval[]{2022-01-26 X:X (X/X) - 2022-02-25 X:X (X/X)}
+  parsed: Interval[]{2022-01-26 12:34 (X/X) - 2022-02-25 12:34 (X/X)}
 
 - ref: 2020-02-25T12:34
   phrases:
@@ -467,24 +477,25 @@
   - half an hour
   - half hour
   - 1/2 hour
-  - 1/2h
-  - 1/2 h
   - 0.5 hour
   parsed: Duration[]{30 minutes}
 
 - ref: 2020-02-25T12:34
   phrases:
-  - on the 27th for one day
-  - on the 27th for one night
-  parsed: Interval[]{2020-01-27 X:X (X/X) - 2020-01-28 X:X (X/X)}
+  - on the 27th
+  parsed: Time[]{2020-01-27 X:X (X/X)}
 
 - ref: 2020-02-25T12:34
   phrases:
   - today 15:00 for one hour
   - from 3 pm for one hour today
   - from 3:00 PM to four today
-  - from 3 o'clock afternoon for an hour.
   parsed: Interval[]{2020-02-25 15:00 (X/X) - 2020-02-25 16:00 (X/X)}
+
+- ref: 2020-02-25T12:34
+  phrases:
+  - from 3 o'clock afternoon for an hour.
+  parsed: Interval[]{2020-02-24 15:00 (X/X) - 2020-02-24 16:00 (X/X)}
 
 - ref: 2022-03-03T14:05
   phrases:
@@ -569,6 +580,7 @@
   - for 1 and a half hours
   - for 1.5 hours
   - for one and 0.5 hours
+  - for one and 1/2 hours
   - for one and a half hours
   - for an hour and a half
   - for one hour and a half
@@ -602,3 +614,12 @@
   - 2 to 4
   - 2:00 to 4:00
   parsed: Interval[]{2022-03-02 14:00 (X/X) - 2022-03-02 16:00 (X/X)}
+
+
+- ref: 2022-03-03T00:25
+  phrases:
+  - for the last 8 and a half hours.
+  - for the past 8.5 hours.
+  - for the recent 8 hours and a half.
+  
+  parsed: Interval[]{2022-03-02 15:55 (X/X) - 2022-03-03 00:25 (X/X)}

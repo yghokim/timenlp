@@ -319,6 +319,10 @@ class Time(Artifact):
         return self._hasOnly("month")
 
     @property
+    def isYearAndMonth(self) -> bool:
+        return self._hasOnly("year", "month")
+
+    @property
     def isPOD(self) -> bool:
         """isPartOfDay <=> morning, etc.; fragile, tests only that there is a
         POD and neither a full date nor a full time
@@ -346,6 +350,10 @@ class Time(Artifact):
         return self._hasOnly("year", "month", "day", "hour") or self._hasOnly(
             "year", "month", "day", "hour", "minute"
         )
+
+    @property
+    def isDateWithPOD(self) -> bool:
+        return self._hasOnly("year", "month", "day", "POD")
 
     @property
     def isYear(self) -> bool:
@@ -380,11 +388,14 @@ class Time(Artifact):
     @property
     def isMeridiemLatent(self) -> bool:
         return self.meridiemLatent if self.meridiemLatent is not None else False
-
+   
     def to_datetime_unsafe(self) -> datetime:
         """convert to a datetime object"""
-        return datetime(
-            year = self.year, month = self.month, day = self.day, hour = self.hour, minute = self.minute
+        if self.isDate:
+            return datetime(self.year, self.month, self.day)
+        else:
+            return datetime(
+                year = self.year, month = self.month, day = self.day, hour = self.hour, minute = self.minute
             )
 
     def __str__(self) -> str:
@@ -508,13 +519,11 @@ class Interval(Artifact):
         else:
             return None
 
-
 @enum.unique
 class DurationUnit(enum.Enum):
     MINUTES = "minutes"
     HOURS = "hours"
     DAYS = "days"
-    NIGHTS = "nights"
     WEEKS = "weeks"
     MONTHS = "months"
 
@@ -539,9 +548,3 @@ class Duration(Artifact):
     def from_str(cls: Type["Duration"], text: str) -> "Duration":
         value, unit = text.split()
         return Duration(int(value), DurationUnit(unit))
-
-    @property
-    def isFractionalDuration(self) -> bool:
-        if self.tag is not None:
-            return bool("fraction" in self.tag)
-        else: return False
