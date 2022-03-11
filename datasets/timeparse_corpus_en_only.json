@@ -131,6 +131,22 @@
     "gold_parse": "Time[]{2017-10-20 X:X (X/X)}",
     "language": "en"
   },
+
+  {
+    "text": "Friday the 5th",
+    "ref_time": "2022-03-04T08:47:39",
+    "gold_parse": "Time[]{2021-11-05 X:X (X/X)}",
+    "language": "en"
+  },
+
+
+  {
+    "text": "Thursday, the 28th",
+    "ref_time": "2021-11-19T12:00:39",
+    "gold_parse": "Time[]{2021-10-28 X:X (X/X)}",
+    "language": "en"
+  },
+
   {
     "text": "From Wed to Fri this week 2330",
     "ref_time": "2017-11-29T12:13:58",

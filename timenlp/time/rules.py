@@ -180,7 +180,7 @@ def ruleMonthOrdinal(ts: datetime, m: RegexMatch) -> Time:
     return Time(month=int(m.match.group("month")))
 
 
-@rule(r"(?<!\d|\.)(?P<day>(?&_day))\s*(?:st|nd|rd|th)")
+@rule(r"(?:the\s+)?(?<!\d|\.)(?P<day>(?&_day))\s*(?:st|nd|rd|th)")
 # a "[0-31]" followed by a th/st
 def ruleDOM2(ts: datetime, m: RegexMatch) -> Time:
     return Time(day=int(m.match.group("day")))
