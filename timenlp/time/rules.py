@@ -168,13 +168,13 @@ def rulePOD(ts: datetime, m: RegexMatch) -> Optional[Time]:
             return Time(POD=pod)
     return None
 
-@rule(r"(?<!\d|\.)(?P<day>(?&_day))\.?(?!\d)")
+@rule(r"\b(?<!\d|\.)(?P<day>(?&_day))\.?(?!\d)\b")
 def ruleDOM1(ts: datetime, m: RegexMatch) -> Time:
     # Ordinal day "5."
     return Time(day=int(m.match.group("day")))
 
 
-@rule(r"(?<!\d|\.)(?P<month>(?&_month))\.?(?!\d)")
+@rule(r"\b(?<!\d|\.)(?P<month>(?&_month))\.?(?!\d)\b")
 def ruleMonthOrdinal(ts: datetime, m: RegexMatch) -> Time:
     # Ordinal day "5."
     return Time(month=int(m.match.group("month")))
@@ -191,6 +191,7 @@ def ruleDOMOrdered(ts: datetime, m: RegexMatch) -> Time:
     return Time(day=day)
 
 @rule(r"(?<!\d|\.)(?P<year>(?&_year))(?!\d)")
+#@rule(r"(?P<year>\b\d{4}\b)")
 def ruleYear(ts: datetime, m: RegexMatch) -> Optional[Time]:
     # Since we may have two-digits years, we have to make a call
     # on how to handle which century does the time refers to.
@@ -908,16 +909,13 @@ def ruleDateDOM(ts: datetime, d1: Time, _: RegexMatch, d2: Time) -> Optional[Int
 
 
 #Added by Young-Ho
-@rule(dimension(Time), _regex_to_join + r"\s+(?P<to>[123]?\d)(?:st|nd|rd|th)?\b")
+@rule(predicate("isDate"), _regex_to_join + r"\s+(?P<to>[123]?\d)(?:st|nd|rd|th)?\b")
 def ruleDateAndDigit(ts: datetime, d1: Time, m: RegexMatch) -> Optional[Interval]:
     #January 15 to 24
-    if d1.hasTime == False:
-        day_to = int(m.match.group("to"))
-        if d1.day >= day_to:
-            return None
-        return Interval(t_from=d1, t_to=Time(year=d1.year, month=d1.month, day=day_to))
-    return None
-
+    day_to = int(m.match.group("to"))
+    if d1.day >= day_to:
+        return None
+    return Interval(t_from=d1, t_to=Time(year=d1.year, month=d1.month, day=day_to))
 
 @rule(predicate("isDOY"), _regex_to_join, predicate("isDate"))
 def ruleDOYDate(ts: datetime, d1: Time, _: RegexMatch, d2: Time) -> Optional[Interval]:
@@ -964,6 +962,20 @@ def ruleDateTimeDateTime(
 
 @rule(predicate("isTOD"), _regex_to_join, predicate("isTOD"))
 def ruleTODTOD(ts: datetime, t1: Time, _: RegexMatch, t2: Time) -> Interval:
+
+    if t1.isMeridiemLatent == True or t2.isMeridiemLatent == True:
+        #Just put ts's date to avoid argument exception.
+        t_from = datetime(year = ts.year, month = ts.month, day = ts.day, hour=t1.hour, minute=t1.minute)
+        t_to = datetime(year = ts.year, month = ts.month, day = ts.day, hour=t2.hour, minute=t2.minute)
+
+        if t2.isMeridiemLatent == False and t2.hour >= 12 and t1.hour + 12 < t2.hour:
+            t_from = t_from + relativedelta(hours=12)
+            return Interval(t_from=Time(hour = t_from.hour, minute = t_from.minute), t_to=Time(hour = t_to.hour, minute = t_to.minute))
+        elif t1.isMeridiemLatent == False and t1.hour < 12 and t2.hour - 12 > t1.hour:
+            t_to = t_to - relativedelta(hours=12)
+            return Interval(t_from=Time(hour = t_from.hour, minute = t_from.minute), t_to=Time(hour = t_to.hour, minute = t_to.minute))
+        
+
     return Interval(t_from=t1, t_to=t2)
 
 

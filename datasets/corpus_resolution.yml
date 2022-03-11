@@ -332,21 +332,21 @@
 - ref: 2022-07-26T00:00
   phrases:
   - in the evening between 8 and 9
-  - July 26th between 20 and 21
-  parsed: Interval[]{2022-07-25 20:00 (X/X) - 2022-07-25 21:00 (X/X)}
+  - July 26th from 8 to 9 PM
+  parsed: Interval[]{2022-07-26 20:00 (X/X) - 2022-07-26 21:00 (X/X)}
 
 - ref: 2022-07-26T00:00
   phrases:
   - in the morning between 8 and 9
   - July 26th between 8 and 9
-  parsed: Interval[]{2022-07-25 08:00 (X/X) - 2022-07-25 09:00 (X/X)}
+  parsed: Interval[]{2022-07-26 08:00 (X/X) - 2022-07-26 09:00 (X/X)}
 
 - ref: 2017-12-18T12:34
   phrases:
   - tomorrow 09:30 - 10:45
   - tomorrow 0930 - 1045
   - 19th of December from 09:30 till 10:45
-  - Dec 19th between 9.30 and 10.45
+  - Dec 19th between 9:30 and 10:45
   parsed: Interval[]{2017-12-19 09:30 (X/X) - 2017-12-19 10:45 (X/X)}
 
 - ref: 2017-12-18T12:34
@@ -485,8 +485,12 @@
   - today 15:00 for one hour
   - from 3 pm for one hour today
   - from 3:00 PM to four today
-  - from 3 o'clock afternoon for an hour.
   parsed: Interval[]{2020-02-25 15:00 (X/X) - 2020-02-25 16:00 (X/X)}
+
+- ref: 2020-02-25T12:34
+  phrases:
+  - from 3 o'clock afternoon for an hour.
+  parsed: Interval[]{2020-02-24 15:00 (X/X) - 2020-02-24 16:00 (X/X)}
 
 - ref: 2022-03-03T14:05
   phrases:

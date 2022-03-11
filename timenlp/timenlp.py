@@ -163,6 +163,7 @@ def _timenlp(
         logger.debug("=" * 80)
         logger.debug("-> matching regular expressions")
         p, _tp = timeit(_match_regex)(txt, global_regex)
+        logger.debug(f"{len(p)} expressions were matched.")
         logger.debug("time in _match_regex: {:.0f}ms".format(1000 * _tp))
 
         logger.debug("=" * 80)
