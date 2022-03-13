@@ -49,15 +49,16 @@ def _latent_tod(ts: datetime, tod: Time) -> Time:
     #if dm <= ts:
     #    dm += relativedelta(days=1)
     
-    return Time(
+    new_t = Time(
         year=dm.year, month=dm.month, day=dm.day, hour=dm.hour, minute=dm.minute
     )
+
+    new_t.update_span(tod)
+    return new_t
 
 FUTURE_TOLERANCE_DELTA = relativedelta(minutes = 10)
 
 def _latent_time_interval(ts: datetime, ti: Interval) -> Interval:
-
-    print("latent time interval convert", ti.t_from, ti.t_from.isMeridiemLatent, ti.t_to, ti.t_to.isMeridiemLatent)
     
     assert ti.t_from and ti.t_to  # guaranteed by the caller
     dm_from = ts + relativedelta(hour=ti.t_from.hour, minute=ti.t_from.minute or 0) if ti.t_from.isTOD == False else _latent_tod(ts, ti.t_from).to_datetime_unsafe()
@@ -88,7 +89,7 @@ def _latent_time_interval(ts: datetime, ti: Interval) -> Interval:
                 dm_from -= relativedelta(days=1)
                 dm_to -= relativedelta(days=1)
 
-    return Interval(
+    new_i = Interval(
         t_from=Time(
             year=dm_from.year,
             month=dm_from.month,
@@ -105,6 +106,12 @@ def _latent_time_interval(ts: datetime, ti: Interval) -> Interval:
         ),
     )
 
+    #update spans
+    new_i.t_from.update_span(ti.t_from)
+    new_i.t_to.update_span(ti.t_to)
+    new_i.update_span(ti)
+
+    return new_i
 
 #Original##################################################################################################
 
