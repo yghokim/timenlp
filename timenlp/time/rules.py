@@ -963,8 +963,6 @@ def ruleDateTimeDateTime(
 @rule(predicate("isTOD"), _regex_to_join, predicate("isTOD"))
 def ruleTODTOD(ts: datetime, t1: Time, _: RegexMatch, t2: Time) -> Interval:
 
-    print(t1, t1.isMeridiemLatent, t2, t2.isMeridiemLatent)
-
     if t1.isMeridiemLatent == True or t2.isMeridiemLatent == True:
         #Just put ts's date to avoid argument exception.
         t_from = datetime(year = ts.year, month = ts.month, day = ts.day, hour=t1.hour, minute=t1.minute)
@@ -1073,12 +1071,6 @@ def rulePODInterval(ts: datetime, p: Time, i: Interval) -> Optional[Interval]:
             minute=i.t_from.minute,
             DOW=i.t_from.DOW,
         )
-
-    #adjust to with POD
-    if i.t_to.isTOD and i.t_to.isMeridiemLatent:
-        if i.t_to.hour >= 12:
-            dt_from = datetime(year = ts.year,)
-
 
     return Interval(t_from=t_from, t_to=t_to)
 

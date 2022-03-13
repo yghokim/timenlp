@@ -62,7 +62,7 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 train:
-	python scripts/train_default_model.py --legacy --dataset datasets/timeparse_corpus_en_only.json
+	python train_default_model.py --dataset datasets/timeparse_corpus_en_only.json
 
 coverage: ## check code coverage quickly with the default Python
 	coverage run --source timenlp -m pytest

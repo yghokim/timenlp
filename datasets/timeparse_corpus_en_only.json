@@ -1,11 +1,5 @@
 [
   {
-    "text": "one night",
-    "ref_time": "2017-10-03T14:30:35",
-    "gold_parse": "Duration[]{1 nights}",
-    "language": "en"
-  },
-  {
     "text": "12 September - Late evening",
     "ref_time": "2017-09-01T08:44:52",
     "gold_parse": "Time[]{2017-09-12 X:X (X/lateevening)}",
@@ -904,12 +898,6 @@
     "language": "en"
   },
   {
-    "text": "1 night",
-    "ref_time": "2017-09-14T09:18:11",
-    "gold_parse": "Duration[]{1 nights}",
-    "language": "en"
-  },
-  {
     "text": "14.11.2017",
     "ref_time": "2017-11-03T14:00:07",
     "gold_parse": "Time[]{2017-11-14 X:X (X/X)}",
@@ -949,12 +937,6 @@
     "text": "Thursday the 30 of Nov. early",
     "ref_time": "2017-09-22T12:12:02",
     "gold_parse": "Time[]{2017-11-30 X:X (X/morning)}",
-    "language": "en"
-  },
-  {
-    "text": "2 nights",
-    "ref_time": "2017-07-17T12:57:50",
-    "gold_parse": "Duration[]{2 nights}",
     "language": "en"
   },
   {
@@ -1198,12 +1180,6 @@
     "language": "en"
   },
   {
-    "text": "1 night",
-    "ref_time": "2017-07-21T05:22:51",
-    "gold_parse": "Duration[]{1 nights}",
-    "language": "en"
-  },
-  {
     "text": "8 June lunchtime / in the early afternoon",
     "ref_time": "2017-06-06T07:15:45",
     "gold_parse": "Time[]{2017-06-08 X:X (X/earlyafternoon)}",
@@ -1381,12 +1357,6 @@
     "text": "on 14/12/2017 6:00PM",
     "ref_time": "2017-11-17T09:52:14",
     "gold_parse": "Time[]{2017-12-14 18:00 (X/X)}",
-    "language": "en"
-  },
-  {
-    "text": "1 night",
-    "ref_time": "2017-10-24T12:30:29",
-    "gold_parse": "Duration[]{1 nights}",
     "language": "en"
   },
   {
@@ -2047,12 +2017,6 @@
     "text": "1.9. 17:00 the earliest",
     "ref_time": "2017-07-31T17:32:42",
     "gold_parse": "Interval[]{2017-09-01 17:00 (X/X) - None}",
-    "language": "en"
-  },
-  {
-    "text": "one night",
-    "ref_time": "2017-09-06T05:40:32",
-    "gold_parse": "Duration[]{1 nights}",
     "language": "en"
   },
   {
