@@ -14,8 +14,9 @@ logger.setLevel(logging.DEBUG)
 from timenlp import timenlp
 
 def test():
-  ref = datetime(2022, 3, 7, 22, 34)
-  phrase = "I had 3 cups of coffee this morning at 8:00 am to 10:30."
+  #2020-02-25T12:34
+  ref = datetime(2020, 2, 25, 12, 34)
+  phrase = "today 3:00 pm for one hour"
   parsed = timenlp(phrase, ts=ref, latent_time=True)
   print("ref:", ref, "phrase:", phrase)
   print(parsed)

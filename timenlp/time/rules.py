@@ -190,7 +190,7 @@ def ruleDOMOrdered(ts: datetime, m: RegexMatch) -> Time:
     day = get_DOM_from_match(m)
     return Time(day=day)
 
-@rule(r"(?<!\d|\.)(?P<year>(?&_year))(?!\d)")
+@rule(r"(?<!\d|\.)(?P<year>(?&_year))(?!\d)(?:\s)?")
 #@rule(r"(?P<year>\b\d{4}\b)")
 def ruleYear(ts: datetime, m: RegexMatch) -> Optional[Time]:
     # Since we may have two-digits years, we have to make a call
@@ -517,6 +517,7 @@ def _maybe_apply_am_pm(t: Time, ampm_match: str) -> Time:
     if ampm_match.lower().startswith("p") and t.hour < 12:
         new_t = Time(hour=t.hour + 12, minute=t.minute, meridiemLatent=False)
         new_t.update_span(t)
+        return new_t
     # the case ampm_match.startswith('a') and t.hour >
     # 12 (e.g. 13:30am) makes no sense, lets ignore the ampm
     # likewise if hour >= 12 no 'pm' action is needed
@@ -1024,6 +1025,7 @@ def ruleDateInterval(ts: datetime, d: Time, i: Interval) -> Optional[Interval]:
     # This is for wrapping time around a date.
     # Mon, Nov 13 11:30 PM - 3:35 AM
     if t_from and t_to and t_from.dt >= t_to.dt:
+        print("hehehehehe", i.t_from.isMeridiemLatent, i.t_to.isMeridiemLatent)
         t_to_dt = t_to.dt + relativedelta(days=1)
         t_to = Time(
             year=t_to_dt.year,

@@ -487,7 +487,7 @@
 
 - ref: 2020-02-25T12:34
   phrases:
-  - today 15:00 for one hour
+  - today 3:00 pm for one hour
   - from 3 pm for one hour today
   - from 3:00 PM to four today
   parsed: Interval[]{2020-02-25 15:00 (X/X) - 2020-02-25 16:00 (X/X)}

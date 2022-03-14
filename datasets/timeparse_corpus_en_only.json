@@ -125,22 +125,18 @@
     "gold_parse": "Time[]{2017-10-20 X:X (X/X)}",
     "language": "en"
   },
-
   {
     "text": "Friday the 5th",
     "ref_time": "2022-03-04T08:47:39",
     "gold_parse": "Time[]{2021-11-05 X:X (X/X)}",
     "language": "en"
   },
-
-
   {
     "text": "Thursday, the 28th",
     "ref_time": "2021-11-19T12:00:39",
     "gold_parse": "Time[]{2021-10-28 X:X (X/X)}",
     "language": "en"
   },
-
   {
     "text": "From Wed to Fri this week 2330",
     "ref_time": "2017-11-29T12:13:58",
@@ -2061,115 +2057,101 @@
     "gold_parse": "Interval[]{2017-07-24 X:X (X/X) - 2017-07-25 X:X (X/X)}",
     "language": "en"
   },
-
   {
     "text": "two to 4",
     "ref_time": "2022-03-03T12:00:00",
     "gold_parse": "Interval[]{X-X-X 02:00 (X/X) - X-X-X 04:00 (X/X)}",
     "language": "en"
   },
-
   {
     "text": "eleven to one",
     "ref_time": "2022-03-03T12:00:00",
     "gold_parse": "Interval[]{X-X-X 11:00 (X/X) - X-X-X 13:00 (X/X)}",
     "language": "en"
   },
-
   {
     "text": "for 3 hours",
     "ref_time": "2022-03-03T14:05:00",
     "gold_parse": "Interval[]{2022-03-03 11:05 (X/X) - 2022-03-03 14:05 (X/X)}",
     "language": "en"
   },
-
-
   {
     "text": "1 and a half hours",
     "ref_time": "2022-03-03T14:05:00",
     "gold_parse": "Duration[]{90 minutes}",
     "language": "en"
   },
-
   {
     "text": "1 and 1/2 hours",
     "ref_time": "2022-03-03T14:05:00",
     "gold_parse": "Duration[]{90 minutes}",
     "language": "en"
   },
-
-
   {
     "text": "three and 1/4 hours",
     "ref_time": "2022-03-03T14:05:00",
     "gold_parse": "Duration[]{195 minutes}",
     "language": "en"
   },
-
   {
     "text": "since 1 pm for 3 hours",
     "ref_time": "2022-03-03T18:30:00",
     "gold_parse": "Interval[]{X-X-X 13:00 (X/X) - X-X-X 16:00 (X/X)}",
     "language": "en"
   },
-
   {
     "text": "from 11 a.m. for an hour",
     "ref_time": "2022-03-03T13:30:00",
     "gold_parse": "Interval[]{X-X-X 11:00 (X/X) - X-X-X 12:00 (X/X)}",
     "language": "en"
   },
-
+  {
+    "text": "today 3 p.m. for one hour",
+    "ref_time": "2020-02-25T12:34:00",
+    "gold_parse": "Interval[]{X-X-X 11:00 (X/X) - X-X-X 12:00 (X/X)}",
+    "language": "en"
+  },
   {
     "text": "2:30 pm on January 17, 2022",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Time[]{2022-01-17 14:30 (X/X)}",
     "language": "en"
   },
-
   {
     "text": "October 4 to 8",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Interval[]{X-10-04 X:X (X/X) - X-10-08 X:X (X/X)}",
     "language": "en"
   },
-
-
   {
     "text": "from March fifth to twelfth",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Interval[]{X-03-05 X:X (X/X) - X-03-12 X:X (X/X)}",
     "language": "en"
   },
-
-
   {
     "text": "March fifth",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Time[]{X-03-05 X:X (X/X)}",
     "language": "en"
   },
-
-
   {
     "text": "April first",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Time[]{X-04-01 X:X (X/X)}",
     "language": "en"
   },
-
-
   {
     "text": "from September 12 to 27",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Interval[]{X-09-12 X:X (X/X) - X-09-27 X:X (X/X)}",
     "language": "en"
   },
-
   {
     "text": "August 5 at 8",
     "ref_time": "2021-12-18T12:34:00",
     "gold_parse": "Time[]{X-08-05 08:00 (X/X)}",
     "language": "en"
-  }
+  },
+  {}
 ]
