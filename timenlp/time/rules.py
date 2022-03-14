@@ -260,7 +260,7 @@ def ruleEOY(ts: datetime, _: RegexMatch, y: Time) -> Time:
     return Time(year=dm.year, month=dm.month, day=dm.day)
 
 
-_rule_dom = r"\b(?P<dom>\d\d?)(?:st|nd|rd|th)?\b"
+_rule_dom = r"\b(?P<dom>\d\d?)(?:st|nd|rd|th)?\s*"
 
 @rule(_rule_dom, predicate("isMonth"))
 def ruleDOMMonth(ts: datetime, d: RegexMatch, m: Time) -> Time:
@@ -280,7 +280,6 @@ def ruleMonthDOM(ts: datetime, m: Time, d: RegexMatch) -> Time:
 @rule(predicate("isMonth"), predicate("isDOM"))
 def ruleMonthDOMLiteral(ts: datetime, m: Time, d: Time) -> Time:
     return Time(month=m.month, day=d.day)
-
 
 @rule(r"this", predicate("isDOW"))
 def ruleAtDOW(ts: datetime, _: RegexMatch, dow: Time) -> Time:
@@ -887,6 +886,14 @@ def ruleDOYToDigit(ts: datetime, d: Time, m: RegexMatch) -> Optional[Interval]:
     else: return None
 """
 
+@rule(r"\bsince\b", dimension(Time))
+def ruleSinceTime(ts: datetime, _:RegexMatch, t: Time) -> Optional[Interval]:
+    if t.isDateTime:
+        return Interval(t_from=t, t_to=Time(year=ts.year, month=ts.month, day=ts.day, hour=ts.hour, minute=ts.minute))
+    elif t.isDate:
+        return Interval(t_from=t, t_to=Time(year=ts.year, month=ts.month, day=ts.day))
+    else: return None
+
 @rule(predicate("isDate"), _regex_to_join, predicate("isDate"))
 def ruleDateDate(ts: datetime, d1: Time, _: RegexMatch, d2: Time) -> Optional[Interval]:
     if d1.year > d2.year:
@@ -1025,7 +1032,6 @@ def ruleDateInterval(ts: datetime, d: Time, i: Interval) -> Optional[Interval]:
     # This is for wrapping time around a date.
     # Mon, Nov 13 11:30 PM - 3:35 AM
     if t_from and t_to and t_from.dt >= t_to.dt:
-        print("hehehehehe", i.t_from.isMeridiemLatent, i.t_to.isMeridiemLatent)
         t_to_dt = t_to.dt + relativedelta(days=1)
         t_to = Time(
             year=t_to_dt.year,

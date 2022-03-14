@@ -16,7 +16,7 @@ from timenlp import timenlp
 def test():
   #2020-02-25T12:34
   ref = datetime(2020, 2, 25, 12, 34)
-  phrase = "today 3:00 pm for one hour"
+  phrase = "since October 1, I've been to the gym."
   parsed = timenlp(phrase, ts=ref, latent_time=True)
   print("ref:", ref, "phrase:", phrase)
   print(parsed)

@@ -623,3 +623,12 @@
   - for the recent 8 hours and a half.
   
   parsed: Interval[]{2022-03-02 15:55 (X/X) - 2022-03-03 00:25 (X/X)}
+
+
+- ref: 2022-03-03T00:25
+  phrases:
+  - since October 1, I've been to the gym.
+  - I've been to the gym since October 1st.
+  parsed: Interval[]{2021-10-01 X:X (X/X) - 2022-03-03 X:X (X/X)}
+
+  

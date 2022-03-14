@@ -2153,5 +2153,23 @@
     "gold_parse": "Time[]{X-08-05 08:00 (X/X)}",
     "language": "en"
   },
-  {}
+  {
+    "text": "since June 25",
+    "ref_time": "2022-03-03T13:30:00",
+    "gold_parse": "Interval[]{2021-06-25 X:X (X/X) - 2022-03-03 X:X (X/X)}",
+    "language": "en"
+  },
+  {
+    "text": "June 1",
+    "ref_time": "2022-03-03T13:30:00",
+    "gold_parse": "Time[]{2021-06-01 X:X (X/X)}",
+    "language": "en"
+  },
+
+  {
+    "text": "June 1, we did a good job.",
+    "ref_time": "2022-03-03T13:30:00",
+    "gold_parse": "Time[]{2021-06-01 X:X (X/X)}",
+    "language": "en"
+  }
 ]
