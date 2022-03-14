@@ -515,7 +515,8 @@ def _maybe_apply_am_pm(t: Time, ampm_match: str) -> Time:
         t.meridiemLatent = False
         return t
     if ampm_match.lower().startswith("p") and t.hour < 12:
-        return Time(hour=t.hour + 12, minute=t.minute, meridiemLatent=False)
+        new_t = Time(hour=t.hour + 12, minute=t.minute, meridiemLatent=False)
+        new_t.update_span(t)
     # the case ampm_match.startswith('a') and t.hour >
     # 12 (e.g. 13:30am) makes no sense, lets ignore the ampm
     # likewise if hour >= 12 no 'pm' action is needed
@@ -549,6 +550,9 @@ def ruleHHMM(ts: datetime, m: RegexMatch) -> Time:
     # hh:mm
     # hhmm
     t = Time(hour=int(m.match.group("hour")), minute=int(m.match.group("minute") or 0))
+    t.mstart = m.mstart
+    t.mend = m.mend
+
     return _maybe_apply_am_pm(t, m.match.group("ampm"))
 
 
@@ -1071,6 +1075,9 @@ def rulePODInterval(ts: datetime, p: Time, i: Interval) -> Optional[Interval]:
             minute=i.t_from.minute,
             DOW=i.t_from.DOW,
         )
+
+    t_to.update_span(i.t_to)
+    t_from.update_span(i.t_from)
 
     return Interval(t_from=t_from, t_to=t_to)
 
