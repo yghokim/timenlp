@@ -1,9 +1,10 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, Optional, Tuple, Type, TypeVar
 
 import regex
 from regex import Regex
 import enum
+import pendulum
 
 T = TypeVar("T", bound="Artifact")
 
@@ -63,6 +64,14 @@ class Artifact:
         """
         return all(getattr(self, a) is not None for a in args)
 
+    def decompose_to_dict(self, tz: str | timezone)->dict:    
+        if isinstance(self, Duration):
+            return _convert_timenlp_duration_to_dict(self)
+        elif isinstance(self, Time):
+            return _convert_timenlp_time_to_dict(self, tz)
+        elif isinstance(self, Interval):
+            return _convert_timenlp_interval_to_dict(self, tz)
+        
 
 class RegexMatch(Artifact):
     def __init__(self, id: int, m: Regex) -> None:
@@ -548,3 +557,67 @@ class Duration(Artifact):
     def from_str(cls: Type["Duration"], text: str) -> "Duration":
         value, unit = text.split()
         return Duration(int(value), DurationUnit(unit))
+
+
+
+
+
+def _convert_timenlp_duration_to_dict(duration: Duration, include_original: bool = False)->dict:
+    res = {
+        "type": "duration",
+        "value": duration.value,
+        "unit": duration.unit,
+        "span_start": duration.mstart,
+        "span_end": duration.mend
+    }
+
+    if include_original:
+        res["original"] = duration
+
+    return res
+
+def _convert_timenlp_time_to_dict(time: Time, tz: str | timezone, include_original: bool = False)->dict:
+
+    p: pendulum
+    granularity: str
+    if time.isDateTime:
+        p = pendulum.datetime(time.year, time.month, time.day, time.hour, time.minute, tz=tz)
+        granularity = "datetime"
+    elif time.isDate:
+        p = pendulum.datetime(time.year, time.month, time.day, tz=tz)
+        granularity = "date"
+    elif time.isYearAndMonth:
+        p = pendulum.datetime(time.year, time.month, day=1, tz=tz)
+        granularity = "month"
+    elif time.isYear:
+        p = pendulum.datetime(time.year, tz=tz)
+        granularity = "year"
+    
+
+    res = {
+        "type": "time",
+        "timestamp": p.int_timestamp * 1000,
+        "timezone": tz if isinstance(tz, str) else tz.name,
+        "granularity": granularity,
+        "span_start": time.mstart,
+        "span_end": time.mend
+    }
+
+    if include_original:
+        res["original"] = time
+
+    return res
+
+def _convert_timenlp_interval_to_dict(interval: Interval, tz: str | timezone, include_original: bool = False) -> dict:
+    res = {
+        "type": "interval",
+        "from": _convert_timenlp_time_to_dict(interval.t_from, tz), 
+        "to": _convert_timenlp_time_to_dict(interval.t_to, tz),
+        "span_start": interval.mstart,
+        "span_end": interval.mend
+    }
+
+    if include_original:
+        res["original"] = interval
+    
+    return res

@@ -21,13 +21,10 @@ def test():
   print("ref:", ref, "phrase:", phrase)
   print(parsed)
   if parsed is not None:
-    print(parsed.resolution)
+    print(parsed.resolution.decompose_to_dict(tz="Asia/Seoul"))
     if isinstance(parsed.resolution, Interval):
       print("start time: ", parsed.resolution.t_from.mstart, parsed.resolution.t_from.mend)
       print("end time: ", parsed.resolution.t_to.mstart, parsed.resolution.t_to.mend)
-      
-
-    print(parsed.resolution.mstart, parsed.resolution.mend)
     
   assert True
 

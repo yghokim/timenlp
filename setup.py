@@ -30,7 +30,8 @@ setup(
     install_requires=[
         'python-dateutil>=2.7.3,<3.0.0',
         'regex>=2018.6.6',
-        'tqdm>=4.23.4,<5.0.0'
+        'tqdm>=4.23.4,<5.0.0',
+        'pendulum==2.1.2'
     ],
     license="MIT license",
     include_package_data=True,
@@ -43,6 +44,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/yghokim/timenlp',
-    version='0.3.5',
+    version='0.3.6',
     zip_safe=False,
 )
