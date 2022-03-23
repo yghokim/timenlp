@@ -592,6 +592,8 @@ def _convert_timenlp_time_to_dict(time: Time, tz: str | timezone, include_origin
     elif time.isYear:
         p = pendulum.datetime(time.year, tz=tz)
         granularity = "year"
+    else: #Reject if not.
+        return None
     
 
     res = {
