@@ -30,8 +30,7 @@ setup(
     install_requires=[
         'python-dateutil>=2.7.3,<3.0.0',
         'regex>=2018.6.6',
-        'tqdm>=4.23.4,<5.0.0',
-        'pendulum==2.1.2'
+        'tqdm>=4.23.4,<5.0.0'
     ],
     license="MIT license",
     include_package_data=True,

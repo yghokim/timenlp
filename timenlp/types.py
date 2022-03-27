@@ -1,10 +1,9 @@
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Any, Dict, Optional, Tuple, Type, TypeVar
 
 import regex
 from regex import Regex
 import enum
-import pendulum
 
 T = TypeVar("T", bound="Artifact")
 
@@ -64,13 +63,13 @@ class Artifact:
         """
         return all(getattr(self, a) is not None for a in args)
 
-    def decompose_to_dict(self, tz: str | timezone)->dict:    
+    def decompose_to_dict(self)->dict:    
         if isinstance(self, Duration):
             return _convert_timenlp_duration_to_dict(self)
         elif isinstance(self, Time):
-            return _convert_timenlp_time_to_dict(self, tz)
+            return _convert_timenlp_time_to_dict(self)
         elif isinstance(self, Interval):
-            return _convert_timenlp_interval_to_dict(self, tz)
+            return _convert_timenlp_interval_to_dict(self)
         
 
 class RegexMatch(Artifact):
@@ -576,21 +575,21 @@ def _convert_timenlp_duration_to_dict(duration: Duration, include_original: bool
 
     return res
 
-def _convert_timenlp_time_to_dict(time: Time, tz: str | timezone, include_original: bool = False)->dict:
+def _convert_timenlp_time_to_dict(time: Time, include_original: bool = False)->dict:
 
-    p: pendulum
+    dt: datetime
     granularity: str
     if time.isDateTime:
-        p = pendulum.datetime(time.year, time.month, time.day, time.hour, time.minute, tz=tz)
+        dt = datetime(time.year, time.month, time.day, time.hour, time.minute)
         granularity = "datetime"
     elif time.isDate:
-        p = pendulum.datetime(time.year, time.month, time.day, tz=tz)
+        dt = datetime(time.year, time.month, time.day)
         granularity = "date"
     elif time.isYearAndMonth:
-        p = pendulum.datetime(time.year, time.month, day=1, tz=tz)
+        dt = datetime(time.year, time.month, day=1)
         granularity = "month"
     elif time.isYear:
-        p = pendulum.datetime(time.year, tz=tz)
+        dt = datetime(time.year)
         granularity = "year"
     else: #Reject if not.
         return None
@@ -598,8 +597,7 @@ def _convert_timenlp_time_to_dict(time: Time, tz: str | timezone, include_origin
 
     res = {
         "type": "time",
-        "timestamp": p.int_timestamp * 1000,
-        "timezone": tz if isinstance(tz, str) else tz.name,
+        "iso": dt.isoformat(),
         "granularity": granularity,
         "span_start": time.mstart,
         "span_end": time.mend
@@ -610,11 +608,11 @@ def _convert_timenlp_time_to_dict(time: Time, tz: str | timezone, include_origin
 
     return res
 
-def _convert_timenlp_interval_to_dict(interval: Interval, tz: str | timezone, include_original: bool = False) -> dict:
+def _convert_timenlp_interval_to_dict(interval: Interval, include_original: bool = False) -> dict:
     res = {
         "type": "interval",
-        "from": _convert_timenlp_time_to_dict(interval.t_from, tz), 
-        "to": _convert_timenlp_time_to_dict(interval.t_to, tz),
+        "from": _convert_timenlp_time_to_dict(interval.t_from), 
+        "to": _convert_timenlp_time_to_dict(interval.t_to),
         "span_start": interval.mstart,
         "span_end": interval.mend
     }
